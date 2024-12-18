@@ -1,9 +1,75 @@
-root {
+:root {
     --blueDk: #07164d;
     --blueMd: #0031b3;
     --greenDk: #008800;
     --greenLt: #3cf14b;
     --aquaMd: #aefff5;
-    --aquaLt: #cff9ff;
+    --aquaLt: #e5fdff;
 }
 
+body {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    background-color: var(--aquaLt);
+    font-family: Helvetica, Arial, sans-serif;
+    height: 200vh;
+    width: 100%;
+}
+
+/*  *****   Navbar   *****  */
+
+navbar {
+    color: var(--greenDk);
+    background-color: var(--aquaMd);
+    font-size: 0.7rem;
+    position: fixed;
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+}
+
+navbar p {
+    margin: 0 0.5rem;
+    padding: 0.5rem;
+    text-wrap: nowrap;
+}
+
+navbar p:hover {
+    background-color: var(--aquaLt);
+}
+
+navbar p.login {
+    color: var(--blueMd);
+}
+
+navbar p.login::before {
+    /* put the padlock icon here */
+}
+
+@media screen and (any-hover: hover) and (max-width: 999px) {
+    navbar {
+        display: none;
+    }
+}
+
+/*  *****   Hamburger menu   *****  */
+
+#hamburger {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    height: auto;
+    width: auto;
+}
+
+#hamburger img {
+    transform: scale(0.8);
+}
+
+@media screen and (any-hover: hover) and (min-width: 1000px) {
+    #hamburger {
+        display: none;
+    }
+}
