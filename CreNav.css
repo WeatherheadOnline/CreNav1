@@ -15,6 +15,7 @@ body {
     font-family: Helvetica, Arial, sans-serif;
     height: 200vh;
     width: 100%;
+    overflow-x: hidden;
 }
 
 /*  *****   Navbar   *****  */
@@ -24,6 +25,7 @@ navbar {
     background-color: var(--aquaMd);
     font-size: 0.7rem;
     position: fixed;
+    top: 0;
     width: 100%;
     display: flex;
     flex-wrap: nowrap;
@@ -48,7 +50,7 @@ navbar p.login::before {
     /* put the padlock icon here */
 }
 
-@media screen and (any-hover: hover) and (max-width: 999px) {
+@media screen and (any-hover: hover) and (max-width: 682px) {
     navbar {
         display: none;
     }
@@ -68,8 +70,67 @@ navbar p.login::before {
     transform: scale(0.8);
 }
 
-@media screen and (any-hover: hover) and (min-width: 1000px) {
+@media screen and (any-hover: hover) and (min-width: 683px) {
     #hamburger {
         display: none;
     }
 }
+
+
+/*  *****   Landing screen   *****  */
+
+#landing {
+    position: relative;
+    top: 25vh;
+    left: 10vh;
+    display: flex;
+    gap: 10px;
+}
+
+#hero-text {
+    text-wrap: nowrap;
+}
+
+h1 {
+    color: var(--blueMd);
+    text-transform: uppercase;
+    font-size: 2.5rem;
+    line-height: normal;
+    margin-bottom: 0.2rem;
+
+}
+
+h2 {
+    color: var(--greenDk);
+    font-size: 1.7rem;
+    font-style: italic;
+    line-height: normal;  
+    margin: 0;  
+}
+
+#hero-text p {
+    color: var(--blueDk);
+    font-size: 1rem;
+    font-style: italic;
+    margin-top: 3rem;
+}
+
+#landing-img img {
+    height: 50vh;
+    width: auto;
+}
+
+#landing-img p {
+    color: var(--greenDk);
+    text-transform: uppercase;
+    position: relative;
+    top: -285px;
+    left: 140px;
+    text-decoration: underline var(--greenDk);
+    /* left: 0; */
+}
+
+#landing-img a {
+    text-decoration-color: var(--greenDk);
+}
+
