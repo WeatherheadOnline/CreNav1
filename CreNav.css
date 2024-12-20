@@ -7,130 +7,326 @@
     --aquaLt: #e5fdff;
 }
 
-body {
+
+html, body {
     margin: 0;
     padding: 0;
     position: relative;
-    background-color: var(--aquaLt);
-    font-family: Helvetica, Arial, sans-serif;
-    height: 200vh;
-    width: 100%;
+    top: 0;
     overflow-x: hidden;
 }
-
-/*  *****   Navbar   *****  */
-
-navbar {
-    color: var(--greenDk);
-    background-color: var(--aquaMd);
-    font-size: 0.7rem;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-around;
-}
-
-navbar p {
-    margin: 0 0.5rem;
-    padding: 0.5rem;
-    text-wrap: nowrap;
-}
-
-navbar p:hover {
+body {
     background-color: var(--aquaLt);
+    font-family: Helvetica, Arial, sans-serif;
 }
 
-navbar p.login {
-    color: var(--blueMd);
-}
+svg.defs {position: absolute;}
 
-navbar p.login::before {
-    /* put the padlock icon here */
-}
+/* ************************ */
+/*  *****   Navbar   *****  */
+/* ************************ */
 
-@media screen and (any-hover: hover) and (max-width: 682px) {
+navbar {display: none;}
+
+@media screen and (any-hover: hover) and (min-width: 683px) {
     navbar {
-        display: none;
+        color: var(--greenDk);
+        background-color: var(--aquaMd);
+        font-size: 0.7rem;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-around;
     }
+    navbar p {
+        margin: 0 0.5rem;
+        padding: 0.5rem;
+        text-wrap: nowrap;
+    }
+    navbar p:hover {background-color: var(--aquaLt);}
+    navbar p.login {color: var(--blueMd);}
+    navbar p.login::before {/* put the padlock icon here */}
 }
 
+
+/* ******************************* */
 /*  *****   Hamburger menu   *****  */
+/* ******************************* */
 
 #hamburger {
     position: fixed;
     top: 10px;
     right: 10px;
-    height: auto;
-    width: auto;
+    /* height: auto;
+    width: auto; */
 }
 
-#hamburger img {
-    transform: scale(0.8);
-}
+#hamburger img {transform: scale(0.8);}
 
 @media screen and (any-hover: hover) and (min-width: 683px) {
-    #hamburger {
-        display: none;
-    }
+    #hamburger {display: none;}
 }
 
 
+/* ******************************** */
 /*  *****   Landing screen   *****  */
+/* ******************************** */
 
 #landing {
     position: relative;
-    top: 25vh;
-    left: 10vh;
+    height: 100vh;
     display: flex;
-    gap: 10px;
+    flex-direction: column;
 }
 
-#hero-text {
-    text-wrap: nowrap;
+#landing-bkgd-container {
+    background-image: url(assets/circle-bkgd-narrow.svg);
+    width: 100vw;
+    height: 80vh;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    z-index: -1;
+    opacity: 0.8;
 }
+
+/* ~~~ Landing screen - text ~~~ */
+
+#hero-text-logo {
+    display: flex;
+    flex-direction: column;
+    margin: 10px auto;
+    /* height: max-content; */
+}
+
+#logo {
+    width: 55vw;
+    height: auto;
+}
+
+#hero-text {text-wrap: nowrap;}
 
 h1 {
     color: var(--blueMd);
     text-transform: uppercase;
-    font-size: 2.5rem;
-    line-height: normal;
+    font-size: 2.2rem;
     margin-bottom: 0.2rem;
-
 }
 
 h2 {
     color: var(--greenDk);
-    font-size: 1.7rem;
     font-style: italic;
-    line-height: normal;  
-    margin: 0;  
+    margin: 0;
 }
 
 #hero-text p {
     color: var(--blueDk);
-    font-size: 1rem;
     font-style: italic;
     margin-top: 3rem;
 }
 
+/* ~~~ Landing screen - image ~~~ */
+
+#landing-img a {align-items: center;}
+
 #landing-img img {
-    height: 50vh;
-    width: auto;
+    width: 95vw;
+    height: auto;
+    margin: auto;
 }
 
-#landing-img p {
-    color: var(--greenDk);
-    text-transform: uppercase;
+#landing-img p {}
+
+
+@media screen and (any-hover: hover) {
+    #landing {
+        flex-direction: row;
+        gap: 10px;
+
+    }
+}
+
+
+
+/* ************************************ */
+/*  *****   "Featured" section   *****  */
+/* ************************************ */
+
+#featured {
+    height: 300vh;
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    font-family: Arial;
+}
+
+
+/* ~~~ Featured section: Youth-based marketing ~~~ */
+
+#featured-marketing {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 66.5vw 33.5vw;
+    grid-template-rows: auto auto;
+}
+#featured-marketing img {
+    width: 100%;
+    height: auto;
+}
+#f-m-upper-left {
+    background-color: var(--aquaMd);
     position: relative;
-    top: -285px;
-    left: 140px;
-    text-decoration: underline var(--greenDk);
-    /* left: 0; */
+}
+/* #f-m-upper-left svg {fill: var(--blueDk);} */
+.f-m-upper-left-text {
+    width: 70%;
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+    position: absolute;
+    bottom: 10px;
+    right: 0;
+}
+.f-m-upper-left-text p {
+    text-transform: uppercase;
+    color: var(--greenDk);
+    font-size: 6vw;
+    margin: 0;
+    margin-right: -5px;
+}
+.f-m-upper-left-text span:nth-child(1) {font-size: 5vw;}
+.triangle {
+    height: 0;
+    width: 0;
+    border-top: 5vw solid transparent;
+    border-bottom: 5vw solid transparent;
+}
+.triangle.clearstack-front {
+    border-left: 6vw solid var(--greenDk);
+}
+.clearstack-front {opacity: 0.5;}
+.clearstack-back p {opacity: 1;}
+.clearstack-front:hover {
+    opacity: 1;
+    text-shadow: 2px 2px 4px #00000088;
 }
 
-#landing-img a {
-    text-decoration-color: var(--greenDk);
+/* ~~~ Featured section: Our approach ~~~ */
+
+#featured-approach {
+    position: relative;
+}
+#featured-approach img {
+    width: 100%;
+    height: auto;
+}
+
+.fa-text {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+}
+
+.fa-text p {
+    text-transform: uppercase;
+    color: white;
+    font-size: 4.5vw;
+    margin: 0;
+    margin-right: 8px;
+}
+
+.fa-text p span {
+    font-size: 12vw;
+    vertical-align: middle;
+}
+
+.triangle.fa {
+    border-left: 6vw solid white;
+}
+
+.triangle.fa.placeholder {
+    border-left: 6vw solid transparent;
+}
+
+
+/* ~~~ Featured section: Portfolio ~~~ */
+
+#featured-portfolio {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+#fp-colorblock {
+    width: 33%;
+    background-color: var(--greenDk);
+    height: 100%;
+}
+
+#fp-colorblock p {
+    display: inline;
+    text-transform: uppercase;
+    color: var(--aquaMd);
+    font-size: 0.7rem;
+}
+
+#fp-colorblock span {
+    font-size: 1.1rem;
+}
+
+#featured-portfolio img {
+    width: 67%;
+    height: auto;
+}
+
+.triangle.fp {
+    border-top: 4vw solid transparent;
+    border-bottom: 4vw solid transparent;
+    border-left: 4vw solid var(--greenDk);
+    position: absolute;
+    left: 33%;
+}
+
+/* ~~~ Featured section: action photos ~~~ */
+
+#featured-photos {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+#fph-colorblock {
+    width: 50%;
+    background-color: var(--blueDk);
+    height: 100%;
+}
+
+#fph-colorblock p {
+    display: inline;
+    text-transform: uppercase;
+    color: white;
+    font-size: 0.7rem;
+}
+
+#fph-colorblock span {
+    font-size: 1.1rem;
+}
+
+#featured-photos img {
+    width: 50%;
+    height: auto;
+}
+
+.triangle.fph {
+    border-top: 6vw solid transparent;
+    border-bottom: 6vw solid transparent;
+    border-left: 6vw solid var(--blueDk);
+    position: absolute;
+    left: 50%;
 }
 

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<svg width="100mm" height="100mm" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+
+    <g transform="matrix(2.678,0,0,2.678,-558.74,-626.74)">
+      <circle style="fill:none;stroke:#fc1818;stroke-width:0.7"
+         cx="227.3" cy="252.7" r="18.3" />
+      <circle style="fill:none;stroke:#fc1818;stroke-width:3.9"
+         cx="227.3" cy="252.7" r="13.5" />
+      <circle style="fill:#fc1818;fill-opacity:1"
+         cx="227.3" cy="252.7" r="5.1" />
+    </g>
+</svg>

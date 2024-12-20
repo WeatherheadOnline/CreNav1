@@ -6,6 +6,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 <body>
+
+
+    <svg id="featured-circle-1" class="defs" width="100mm" height="100mm" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <g transform="matrix(1.1564,0,0,1.1564,-100,-329)">
+                <circle
+                    style="stroke:#fc1818;stroke-width:6; fill: none"
+                    cx="129.5" cy="327.7" r="40.2" />
+                <circle
+                    style="stroke:#fc1818;stroke-width:2.5; fill: none"
+                    cx="129.5" cy="327.7" r="29.5" />
+                <circle
+                    style="stroke:#fc1818;stroke-width:12; fill: none"
+                    cx="129.5" cy="327.7" r="14.2" />
+            </g>
+        </defs>
+    </svg>
+
+    <svg id="featured-circle-2" class="defs" width="100mm" height="100mm" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <g transform="matrix(2.678,0,0,2.678,-558.74,-626.74)">
+                <circle style="fill:none;stroke:#fc1818;stroke-width:0.7"
+                    cx="227.3" cy="252.7" r="18.3" />
+                <circle style="fill:none;stroke:#fc1818;stroke-width:3.9"
+                    cx="227.3" cy="252.7" r="13.5" />
+                <circle style="fill:#fc1818;fill-opacity:1"
+                    cx="227.3" cy="252.7" r="5.1" />
+            </g>
+        </defs>
+    </svg>
+    
+            
+
     <header>
         <navbar>
             <p>EXPERTISE</p>
@@ -20,24 +53,142 @@
     </header>
     <main>
         <section id="landing">
-            <div id="hero-text">
-                <h1>We are a youth<br>marketing<br>agency</h1>
-                <h2>We create conversation.<br>We architect advocacy.</h2>
-                <p>Empowering a new generation of consumers<br>to help build the brands they love.</p>
+            <div id="landing-bkgd-container"></div>    <!-- to hold circle background -->
+            <div id="hero-text-logo">
+                <img id="logo" src="assets/logo.svg">
+                <div id="hero-text">
+                    <h1>We are a youth<br>marketing<br>agency</h1>
+                    <h2>We create conversation.<br>We architect advocacy.</h2>
+                    <p>Empowering a new generation of consumers<br>to help build the brands they love.</p>
+                </div>
             </div>
             <div id="landing-img">
-                <!-- <a href="https://creativenavigation.com/web-development/"> -->
-                <a href=""><img src="assets/featured-recent-bluestar.png">
-                <p>What's new</p></a>
+                <a href="">
+                    <img src="assets/featured-recent-bluestar.png">
+                    <p>What's new</p>
+                </a>
             </div>
         </section>
 
-
-
-        <section id="featured"></section>
-        <section id="pictograms"></section>
-        <section id="links-contact"></section>
+        <section id="featured">
+            <div id="featured-marketing">
+                <div id="f-m-upper-left">
+                    <div class="f-m-upper-left-text  clearstack-behind">
+                        <p><span>Youth-based</span><br><span>marketing</span></p>
+                    </div>
+                    <div class="f-m-upper-left-text  clearstack-front">
+                        <p><span>Youth-based</span><br><span>marketing</span></p>
+                        <div class="triangle clearstack-front"></div>
+                    </div>
+                </div>
+                <div id="f-m-lower-left"><img src="assets/featured-bottom-2.jpg"></div>
+                <div id="f-m-upper-right"><img src="assets/featured-right-1.jpg"></div>
+                <div id="f-m-lower-right"><img src="assets/featured-bottom-right-3.jpg"></div>
+            </div>
+            <div id="featured-approach">
+                <img src="assets/our-approach.jpg">
+                <div class="fa-text clearstack-behind">
+                    <p><span>approach</span></p>
+                    <div class="triangle fa placeholder"></div>
+                </div>
+                <div class="fa-text clearstack-front">
+                    <p>Our <span>approach</span></p>
+                    <div class="triangle fa"></div>
+                </div>
+            </div>
+            <div id="featured-portfolio">
+                <div id="fp-colorblock">
+                    <p>Our<br><span>portfolio</span></p>
+                </div>
+                <div class="triangle fp"></div>
+                <img src="assets/our-portfolio.jpg">
+            </div>
+            <div id="featured-photos">
+                <div id="fph-colorblock">
+                    <p>Action & lifestyle<br><span>photos</span></p>
+                </div>
+                <div class="triangle fph"></div>
+                <img src="assets/photo-callout.jpg">
+            </div>
+        </section>
+        <section id="pictograms">
+            <div>
+                <img src="assets/icon-development.png">
+                <div>
+                    <h3>Web development</h3>
+                    <p>We build strategic, engaging websites that instantly reinforce credibility, communicate established messaging, and ultimately convert users into loyal brand advocates.</p>
+                </div>
+            </div>
+            <div>
+                <img src="assets/icon-print.png">
+                <div>
+                    <h3>Identitiy & Print</h3>
+                    <p>We create living identities, flexible expressions of your organization for all marketing and advertising mediums.</p>
+                </div>
+            </div>
+            <div>
+                <img src="assets/icon-social.png">
+                <div>
+                    <h3>Email Marketing & Social Media</h3>
+                    <p>We drive relevant, eager traffic to your website through organic and paid search marketing, intelligent email marketing solutions and a finely tuned social media strategy.</p>
+                </div>
+            </div>
+            <div>
+                <img src="assets/icon-apps.png">
+                <div>
+                    <h3>Apps & Technology</h3>
+                    <p>When third-party APIs come up short and additional functionality is required, our web development team loves to be challenged and has vast experience building customized solutions and plugins.</p>
+                </div>
+            </div>
+        </section>
+        <section id="links-contact">
+            <div><!-- links  -->
+                <div>
+                    <h4>Home</h4>
+                    <h4>Expertise</h4>
+                    <p>About Us</p>
+                    <p>Our Team</p>
+                    <h4>Solutions</h4>
+                </div>
+                <div>
+                    <h4>Portfolio</h4>
+                    <p>Web Development</p>
+                    <p>Print Materials</p>
+                    <p>Identity Work</p>
+                    <p>Email & Social Media</p>
+                    <p>Photography</p>
+                    <p>Apps & Technology</p>
+                </div>
+                <div>
+                    <h4>Careers</h4>
+                    <h4>Client Login</h4>
+                </div>
+            </div>
+            <div><!-- contact -->
+                <form>
+                    <h4>Contact</h4>
+                </form>
+            </div>
+        </section>
     </main>
-    <footer></footer>
+    <footer>
+        <div> <!-- gray section -->
+            <div>
+    <!-- social media icons -->
+            </div>
+            <div>
+                <p>Fort Collins + Vail, Colorado</p> 
+            </div>
+            <div>
+                <img src="assets/email.svg">
+                <p>970-622-8044</p>
+            </div>
+        </div>
+        <div>  <!-- final section -->
+            <p>All content: Copyright &copy; Creative Navigation, LLC. All rights reserved.</p>
+            <p>Layout and code: WeatherheadOnline</p>
+            <p>WeatherheadOnline is not affiliated with Creative Navigation in any way</p>
+        </div>
+    </footer>
 </body>
 </html>
