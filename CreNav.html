@@ -64,27 +64,35 @@
             </div>
             <div id="landing-img">
                 <a href="">
+                <div>
+                    <div></div>
                     <img src="assets/featured-recent-bluestar.png">
-                    <p>What's new</p>
+                    <p>What's new <span>></span></p>
+                </div>
                 </a>
             </div>
         </section>
 
         <section id="featured">
+
             <div id="featured-marketing">
                 <div id="f-m-upper-left">
+
                     <div class="f-m-upper-left-text  clearstack-behind">
                         <p><span>Youth-based</span><br><span>marketing</span></p>
                     </div>
                     <div class="f-m-upper-left-text  clearstack-front">
+                        <img class="featured-circle" src="assets/featured-circle-1.svg">
                         <p><span>Youth-based</span><br><span>marketing</span></p>
                         <div class="triangle clearstack-front"></div>
                     </div>
+                    
                 </div>
                 <div id="f-m-lower-left"><img src="assets/featured-bottom-2.jpg"></div>
                 <div id="f-m-upper-right"><img src="assets/featured-right-1.jpg"></div>
                 <div id="f-m-lower-right"><img src="assets/featured-bottom-right-3.jpg"></div>
             </div>
+
             <div id="featured-approach">
                 <img src="assets/our-approach.jpg">
                 <div class="fa-text clearstack-behind">
@@ -96,59 +104,75 @@
                     <div class="triangle fa"></div>
                 </div>
             </div>
+
             <div id="featured-portfolio">
                 <div id="fp-colorblock">
-                    <p>Our<br><span>portfolio</span></p>
+                    <div>
+                        <img class="featured-circle" src="assets/featured-circle-2.svg">
+                        <p>Our<br><span>portfolio</span></p>
+                    </div>
                 </div>
                 <div class="triangle fp"></div>
                 <img src="assets/our-portfolio.jpg">
             </div>
+
             <div id="featured-photos">
                 <div id="fph-colorblock">
+                    <img class="featured-circle" src="assets/featured-circle-2.svg">
                     <p>Action & lifestyle<br><span>photos</span></p>
                 </div>
                 <div class="triangle fph"></div>
                 <img src="assets/photo-callout.jpg">
             </div>
+            
         </section>
-        <section id="pictograms">
-            <div>
+
+        <section id="services">
+            <div class="services-wrapper">
                 <img src="assets/icon-development.png">
-                <div>
+                <div class="services-text">
                     <h3>Web development</h3>
                     <p>We build strategic, engaging websites that instantly reinforce credibility, communicate established messaging, and ultimately convert users into loyal brand advocates.</p>
                 </div>
             </div>
-            <div>
+            <div class="services-wrapper">
                 <img src="assets/icon-print.png">
-                <div>
+                <div class="services-text">
                     <h3>Identitiy & Print</h3>
                     <p>We create living identities, flexible expressions of your organization for all marketing and advertising mediums.</p>
                 </div>
             </div>
-            <div>
+            <div class="services-wrapper">
                 <img src="assets/icon-social.png">
-                <div>
+                <div class="services-text">
                     <h3>Email Marketing & Social Media</h3>
                     <p>We drive relevant, eager traffic to your website through organic and paid search marketing, intelligent email marketing solutions and a finely tuned social media strategy.</p>
                 </div>
             </div>
-            <div>
+            <div class="services-wrapper">
                 <img src="assets/icon-apps.png">
-                <div>
+                <div class="services-text">
                     <h3>Apps & Technology</h3>
                     <p>When third-party APIs come up short and additional functionality is required, our web development team loves to be challenged and has vast experience building customized solutions and plugins.</p>
                 </div>
             </div>
         </section>
+
+
         <section id="links-contact">
-            <div><!-- links  -->
+            <div id="footer-links">
                 <div>
-                    <h4>Home</h4>
-                    <h4>Expertise</h4>
-                    <p>About Us</p>
-                    <p>Our Team</p>
-                    <h4>Solutions</h4>
+                    <div>
+                        <h4>Home</h4>
+                        <h4>Expertise</h4>
+                        <p>About Us</p>
+                        <p>Our Team</p>
+                        <h4>Solutions</h4>
+                    </div>
+                    <div id="linksCol1">
+                        <h4>Careers</h4>
+                        <h4>Client Login</h4>
+                    </div>
                 </div>
                 <div>
                     <h4>Portfolio</h4>
@@ -159,14 +183,19 @@
                     <p>Photography</p>
                     <p>Apps & Technology</p>
                 </div>
-                <div>
+                <div id="linksCol2">
                     <h4>Careers</h4>
                     <h4>Client Login</h4>
                 </div>
-            </div>
-            <div><!-- contact -->
+        </div>
+            <div id="footer-contact">
                 <form>
                     <h4>Contact</h4>
+                     <label for="name">Name<span class="asterisk">*</span><input type="text" id="name" name="name"></label>
+                     <label for="email">Email<span class="asterisk">*</span><input type="email" id="email" name="email"></label>
+                     <label for="phone">Phone<input type="text" id="phone" name="phone"></label>
+                     <label for="subject">Subject<span class="asterisk">*</span><input type="text" id="subject" name="subject"></label>
+                     <label for="message">Message<span class="asterisk">*</span><input type="textarea" id="message" name="message"></label>
                 </form>
             </div>
         </section>
@@ -174,14 +203,17 @@
     <footer>
         <div> <!-- gray section -->
             <div>
-    <!-- social media icons -->
-            </div>
-            <div>
                 <p>Fort Collins + Vail, Colorado</p> 
             </div>
-            <div>
+            <div id="email-phone">
                 <img src="assets/email.svg">
                 <p>970-622-8044</p>
+            </div>
+            <div>
+                <img src="assets/linkedin-logo.svg">
+                <img src="assets/facebook-logo.svg">
+                <img src="assets/instagram-logo.svg">
+                <img src="assets/bluesky-logo.svg">
             </div>
         </div>
         <div>  <!-- final section -->

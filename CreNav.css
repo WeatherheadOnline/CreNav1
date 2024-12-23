@@ -59,11 +59,15 @@ navbar {display: none;}
     position: fixed;
     top: 10px;
     right: 10px;
+    z-index: 3;
     /* height: auto;
     width: auto; */
 }
 
-#hamburger img {transform: scale(0.8);}
+#hamburger img {
+    transform: scale(0.8);
+    filter: drop-shadow(0 0 1px #000000);
+}
 
 @media screen and (any-hover: hover) and (min-width: 683px) {
     #hamburger {display: none;}
@@ -86,7 +90,8 @@ navbar {display: none;}
     width: 100vw;
     height: 80vh;
     position: absolute;
-    top: 40px;
+    /* top: 40px; */
+    top: 3.2rem;
     left: 0;
     z-index: -1;
     opacity: 0.8;
@@ -129,16 +134,42 @@ h2 {
 
 /* ~~~ Landing screen - image ~~~ */
 
-#landing-img a {align-items: center;}
-
-#landing-img img {
+#landing-img div {
+    /* holds everything inside the link element: the screenshot, colored background, and text */
     width: 95vw;
-    height: auto;
-    margin: auto;
+    margin: 0 2.5vw;
+    position: relative;
 }
 
-#landing-img p {}
+#landing-img div div {
+    /* this is the colored background behind the screenshot */
+    position: absolute;
+    width: 86%;
+    height: 73%;
+    margin: 5% 8%;
+    background-color: var(--greenLt);
+    z-index: -1;
+}
 
+#landing-img img {
+    width: 100%;
+    height: auto;
+}
+
+#landing-img p {
+    text-transform: uppercase;
+    color: var(--blueMd);
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 0.8rem;
+    position: absolute;
+    top: 0.8rem;
+    left: 4.5rem;
+}
+
+#landing-img p span {font-size: 1rem;}
+
+#landing-img a {text-decoration: none;}
 
 @media screen and (any-hover: hover) {
     #landing {
@@ -155,13 +186,17 @@ h2 {
 /* ************************************ */
 
 #featured {
-    height: 300vh;
+    height: 100vh;
+    min-height: max-content;
     display: flex;
     flex-direction: column;
     gap: 1vh;
     font-family: Arial;
 }
 
+.featured-circle {
+
+}
 
 /* ~~~ Featured section: Youth-based marketing ~~~ */
 
@@ -176,7 +211,7 @@ h2 {
     height: auto;
 }
 #f-m-upper-left {
-    background-color: var(--aquaMd);
+    background-color: var(--greenLt);
     position: relative;
 }
 /* #f-m-upper-left svg {fill: var(--blueDk);} */
@@ -191,7 +226,7 @@ h2 {
 }
 .f-m-upper-left-text p {
     text-transform: uppercase;
-    color: var(--greenDk);
+    color: var(--blueMd);
     font-size: 6vw;
     margin: 0;
     margin-right: -5px;
@@ -204,7 +239,7 @@ h2 {
     border-bottom: 5vw solid transparent;
 }
 .triangle.clearstack-front {
-    border-left: 6vw solid var(--greenDk);
+    border-left: 6vw solid var(--blueMd);
 }
 .clearstack-front {opacity: 0.5;}
 .clearstack-back p {opacity: 1;}
@@ -234,19 +269,21 @@ h2 {
 
 .fa-text p {
     text-transform: uppercase;
-    color: white;
+    color: var(--aquaLt);
     font-size: 4.5vw;
     margin: 0;
     margin-right: 8px;
+    font-weight: bold;
 }
 
 .fa-text p span {
     font-size: 12vw;
     vertical-align: middle;
+    font-weight: normal;
 }
 
 .triangle.fa {
-    border-left: 6vw solid white;
+    border-left: 6vw solid var(--aquaLt);
 }
 
 .triangle.fa.placeholder {
@@ -264,15 +301,23 @@ h2 {
 
 #fp-colorblock {
     width: 33%;
-    background-color: var(--greenDk);
+    background-color: var(--blueMd);
     height: 100%;
+    padding-left: 0.5rem;
+    position: relative;
 }
 
 #fp-colorblock p {
     display: inline;
     text-transform: uppercase;
+    text-align: right;
     color: var(--aquaMd);
     font-size: 0.7rem;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
 }
 
 #fp-colorblock span {
@@ -287,7 +332,7 @@ h2 {
 .triangle.fp {
     border-top: 4vw solid transparent;
     border-bottom: 4vw solid transparent;
-    border-left: 4vw solid var(--greenDk);
+    border-left: 4vw solid var(--blueMd);
     position: absolute;
     left: 33%;
 }
@@ -302,19 +347,26 @@ h2 {
 
 #fph-colorblock {
     width: 50%;
-    background-color: var(--blueDk);
+    background-color: var(--greenDk);
     height: 100%;
+    padding-left: 0.5rem;
+    position: relative;
 }
 
 #fph-colorblock p {
     display: inline;
     text-transform: uppercase;
-    color: white;
-    font-size: 0.7rem;
+    color: var(--aquaMd);
+    font-size: 0.9rem;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
 }
 
 #fph-colorblock span {
-    font-size: 1.1rem;
+    font-size: 1.8rem;
 }
 
 #featured-photos img {
@@ -325,8 +377,201 @@ h2 {
 .triangle.fph {
     border-top: 6vw solid transparent;
     border-bottom: 6vw solid transparent;
-    border-left: 6vw solid var(--blueDk);
+    border-left: 6vw solid var(--greenDk);
     position: absolute;
     left: 50%;
 }
 
+
+/* ************************************ */
+/*  *****   "Services" section   *****  */
+/* ************************************ */
+
+#services {
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    margin-top: 3vh;
+    border-width: 3px 0;
+    border-color: var(--aquaMd);
+    border-style: solid;
+    box-shadow: 0 0 15px 0 var(--aquaMd);
+}
+
+.services-wrapper{
+    display: flex;
+    flex-direction: row;
+    margin: 8vw;
+}
+
+.services-wrapper img {
+    width: 18vw;
+    height: auto;
+}
+
+.services-text {}
+
+.services-text h3 {
+    color: var(--blueMd);
+    margin-left: 7vw;
+    text-transform: uppercase;
+}
+
+.services-text p {
+    display: none;
+}
+
+@media screen and (any-hover: hover) {
+    #services {
+        flex-direction: row;
+    }
+    .services-wrapper {
+        flex-direction: column;
+    }
+    .services-wrapper img {
+        width: 20vw;
+        max-width: 100px;
+        height: auto;
+    }
+    .services-text p {
+        display: unset;
+    }
+}
+
+
+
+/* ************************************************* */
+/*  *****   "Footer" links/contact  section   *****  */
+/* ************************************************* */
+
+#links-contact {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+h4 {
+    text-transform: uppercase;
+}
+
+/* ~~~  Links  ~~~~ */
+
+#footer-links {
+    background-color: var(--greenLt);
+    display: grid;
+    grid-auto-flow: column dense;
+    grid-template-columns: auto auto;
+    padding: 0 5%;
+}
+
+#footer-links h4 {
+    color: var(--blueMd);
+}
+
+#footer-links p {
+    color: var(--blueDk);
+    text-indent: 1rem;
+}
+
+#linksCol2 {display: none;}
+
+
+/* ~~~  Contact  ~~~ */
+
+
+#footer-contact {
+    background-color: var(--aquaMd);
+    margin-top: 3vh;
+    padding: 0 5%;
+    padding-bottom: 5%;
+    color: var(--blueMd);
+}    
+
+label {
+    display: block;
+    margin-bottom: 5%;
+}
+
+input {
+    display: block;
+    width: 98%;
+}
+
+input[type="textarea"] {
+    height: 8rem;
+}
+
+.asterisk {
+    color: #D00000;
+}
+
+/* ~~~  Media queries  ~~~ */
+
+@media screen and (any-hover: hover) {
+    #links-contact {
+        flex-direction: row;
+    }
+    #links-contact > div {
+        width: 50vw;
+    }
+    #linksCol2 {display: unset;}
+    #linksCol1 {display: none;}
+}
+
+
+
+/* ********************************** */
+/*  ********      Footer    ********  */
+/* ********************************** */
+
+footer {
+    background-image: url(assets/circle-bkgd-wide.svg);
+    background-size: cover;
+    padding-top: 3vh;
+}
+
+footer p {
+    margin: 0;
+    /* font-size: 0.8rem; */
+}
+
+footer > div:nth-child(1) {
+    background-color: white;
+    border-width: 3px 0;
+    border-style: solid;
+    border-color: var(--aquaMd);
+    box-shadow: 0 0 15px 0 var(--aquaMd);
+    padding-top: 3%;
+    color: var(--greenDk);
+    font-weight: bold;
+    text-wrap: nowrap;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+footer > div:nth-child(1) > div:nth-child(2) img {
+    /* this targets the email icon */
+    height: 1.2rem;
+    width: auto;
+}
+
+footer > div:nth-child(1) > div:nth-last-child(1) img {
+    /* this targets the social media icons */
+    padding: 0.5rem;
+    height: 1.8rem;
+
+}
+
+footer > div:nth-last-child(1) {
+    font-size: 0.8rem;
+    text-align: center;
+    padding: 1rem;
+}
+
+#email-phone {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 1rem;
+}
