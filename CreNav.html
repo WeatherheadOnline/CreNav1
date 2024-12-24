@@ -75,17 +75,16 @@
             <div class="featured" id="f-portfolio">
                 <div class="colorblock">
                     <div class="clearstack-front">
-                        <svg class="featured-circle" class="defs" width="100mm" height="100mm" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                            <g transform="matrix(2.678,0,0,2.678,-558.74,-626.74)">
-                                <circle class="stroke" style="stroke-width:0.7" cx="227.3" cy="252.7" r="18.3" />
-                                <circle class="stroke" style="stroke-width:3.9" cx="227.3" cy="252.7" r="13.5" />
-                                <circle class="fill" style="fill-opacity:1" cx="227.3" cy="252.7" r="5.1" />
-                            </g>
-                        </svg>
+                            <svg class="featured-circle" class="defs" width="100mm" height="100mm" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                <g transform="matrix(2.678,0,0,2.678,-558.74,-626.74)">
+                                    <circle class="stroke" style="stroke-width:0.7" cx="227.3" cy="252.7" r="18.3" />
+                                    <circle class="stroke" style="stroke-width:3.9" cx="227.3" cy="252.7" r="13.5" />
+                                    <circle class="fill" style="fill-opacity:1" cx="227.3" cy="252.7" r="5.1" />
+                                </g>
+                            </svg>
                         <p>Our<br><span>portfolio</span></p>
                     </div>
                 </div>
-                <div class="triangle out-triangle"></div>
                 <img src="assets/our-portfolio.jpg">
             </div>
 
@@ -102,7 +101,6 @@
                         <p>Action & lifestyle<br><span>photos</span></p>
                     </div>
                 </div>
-                <div class="triangle out-triangle"></div>
                 <img src="assets/photo-callout.jpg">
             </div>
         </section>
@@ -149,7 +147,7 @@
                         <p>Our Team</p>
                         <h4>Solutions</h4>
                     </div>
-                    <div id="linksCol1">
+                    <div id="linksColA">
                         <h4>Careers</h4>
                         <h4>Client Login</h4>
                     </div>
@@ -163,7 +161,7 @@
                     <p>Photography</p>
                     <p>Apps & Technology</p>
                 </div>
-                <div id="linksCol2">
+                <div id="linksColB">
                     <h4>Careers</h4>
                     <h4>Client Login</h4>
                 </div>
@@ -171,17 +169,27 @@
             <div id="footer-contact">
                 <form>
                     <h4>Contact</h4>
-                     <label for="name">Name<span class="asterisk">*</span><input type="text" id="name" name="name"></label>
-                     <label for="email">Email<span class="asterisk">*</span><input type="email" id="email" name="email"></label>
-                     <label for="phone">Phone<input type="text" id="phone" name="phone"></label>
-                     <label for="subject">Subject<span class="asterisk">*</span><input type="text" id="subject" name="subject"></label>
-                     <label for="message">Message<span class="asterisk">*</span><input type="textarea" id="message" name="message"></label>
+                    <div class="form-flex">
+                        <label for="name">Name<span class="asterisk">*</span><input type="text" id="name" name="name"></label>
+                        <label for="email">Email<span class="asterisk">*</span><input type="email" id="email" name="email"></label>
+                    </div>
+                    <div class="form-flex">
+                        <label for="phone">Phone<input type="text" id="phone" name="phone"></label>
+                        <label for="subject">Subject<span class="asterisk">*</span><input type="text" id="subject" name="subject"></label>
+                    </div>                    
+                    <label for="message">Message<span class="asterisk">*</span><input type="textarea" id="message" name="message"></label>
                 </form>
             </div>
         </section>
     </main>
     <footer>
-        <div> <!-- gray section -->
+        <div> <!-- address / links section -->
+            <div>
+                <img src="assets/linkedin-logo.svg">
+                <img src="assets/facebook-logo.svg">
+                <img src="assets/instagram-logo.svg">
+                <img src="assets/bluesky-logo.svg">
+            </div>
             <div>
                 <p>Fort Collins + Vail, Colorado</p> 
             </div>
@@ -189,17 +197,12 @@
                 <img src="assets/email.svg">
                 <p>970-622-8044</p>
             </div>
-            <div>
-                <img src="assets/linkedin-logo.svg">
-                <img src="assets/facebook-logo.svg">
-                <img src="assets/instagram-logo.svg">
-                <img src="assets/bluesky-logo.svg">
-            </div>
         </div>
-        <div>  <!-- final section -->
+        <div>  <!-- disclaimer section -->
             <p>All content: Copyright &copy; Creative Navigation, LLC. All rights reserved.</p>
-            <p>Layout and code: WeatherheadOnline</p>
+            <p>Layout and code: &copy; WeatherheadOnline</p>
             <p>WeatherheadOnline is not affiliated with Creative Navigation in any way</p>
+            <p>This website is for educational and display purposes only</p>
         </div>
     </footer>
 </body>

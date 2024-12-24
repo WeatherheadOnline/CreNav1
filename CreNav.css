@@ -417,14 +417,31 @@ h2 {
     height: auto;
 }
 
-#f-portfolio div.colorblock {overflow: hidden;}
+#f-portfolio div.clearstack-front {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;   
+}
 
-#f-portfolio div.out-triangle {
+#f-portfolio > div.colorblock > div.clearstack-front > div {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;   
+}
+
+#f-portfolio div.colorblock::after {
+    content: "";
+    position: absolute;
+    top: calc(50% - 4vw);
+    right: -3.9vw;
+    height: 0;
+    width: 0;
     border-top: 4vw solid transparent;
     border-bottom: 4vw solid transparent;
     border-left: 4vw solid var(--blueMd);
-    position: absolute;    /* relative to #f-portfolio */
-    left: 33%;
+    z-index: 3;
+
 }
 
 #f-portfolio svg {
@@ -438,6 +455,18 @@ h2 {
 #f-portfolio circle.stroke {stroke: #000000; fill: none;}
 #f-portfolio circle.fill {fill: #000000; stroke: none;}
 
+@media screen and (any-hover: none) and (orientation: landscape) {
+    #f-portfolio div.colorblock::after {
+        top: calc(50% - 2.5vw);
+        right: -2.4vw;
+        border-top: 2.5vw solid transparent;
+        border-bottom: 2.5vw solid transparent;
+        border-left: 2.5vw solid var(--blueMd);
+       
+    }
+}
+
+
 /* ~~~ Featured section: action photos ~~~ */
 
 #f-photos {
@@ -450,7 +479,6 @@ h2 {
     background-color: var(--greenDk);
     height: 100%;
     position: relative;
-    overflow: hidden;
 }
 
 #f-photos p {
@@ -474,12 +502,24 @@ h2 {
     height: auto;
 }
 
-#f-photos div.out-triangle {
+#f-photos div.colorblock div.clearstack-front {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;   
+    position: relative;
+}
+
+#f-photos div.colorblock::after {
+    content: "";
+    position: absolute;
+    top: calc(50% - 6vw);
+    right: -5.9vw;
+    height: 0;
+    width: 0;
     border-top: 6vw solid transparent;
     border-bottom: 6vw solid transparent;
     border-left: 6vw solid var(--greenDk);
-    position: absolute;
-    left: 50%;
+    z-index: 3;
 }
 
 #f-photos svg {
@@ -493,7 +533,16 @@ h2 {
 #f-photos circle.stroke {stroke: var(--blueDk); fill: none;}
 #f-photos circle.fill {fill: var(--blueDk); stroke: none;}
 
-
+@media screen and (any-hover: none) and (orientation: landscape) {
+    #f-photos div.colorblock::after {
+        top: calc(50% - 3vw);
+        right: -2.9vw;
+        border-top: 3vw solid transparent;
+        border-bottom: 3vw solid transparent;
+        border-left: 3vw solid var(--greenDk);
+    }
+    
+}
 
 /* ************************************ */
 /*  *****   "Services" section   *****  */
@@ -533,6 +582,36 @@ h2 {
     display: none;
 }
 
+@media screen and (any-hover: none) and (orientation: landscape) {
+    #services {
+        flex-direction: row;
+        padding: 2vw;
+    }
+    .services-wrapper {
+        flex-direction: column;
+        margin: 1vw;
+        align-items: center;
+        width: 22vw;
+    }
+    .services-wrapper img {
+        width: 10vw;
+        height: auto;
+    }
+    .services-text h3 {
+        font-size: 1rem;
+        text-align: center;
+        margin-left: unset;
+        font-weight: light;
+        margin-bottom: 0;
+    }
+    .services-text p {
+        display: block;
+        text-align: center;
+        font-size: 0.8rem;
+        line-height: 1.2rem;
+    }
+}
+
 @media screen and (any-hover: hover) {
     #services {
         flex-direction: row;
@@ -559,10 +638,25 @@ h2 {
 #links-contact {
     display: flex;
     flex-direction: column-reverse;
+    margin-top: 3vh;
 }
 
 h4 {
     text-transform: uppercase;
+}
+
+@media screen and (any-hover: none) and (orientation: landscape) {
+    #links-contact {flex-direction: row;}
+    #links-contact > div {width: 50vw;}
+}
+
+@media screen and (any-hover: hover) {
+    #links-contact {
+        flex-direction: row;
+    }
+    #links-contact > div {
+        width: 50vw;
+    }
 }
 
 /* ~~~  Links  ~~~~ */
@@ -584,15 +678,26 @@ h4 {
     text-indent: 1rem;
 }
 
-#linksCol2 {display: none;}
+#linksColB {display: none;}
 
+@media screen and (any-hover: none) and (orientation: landscape) {
+    #footer-links {padding: 0 2vw;}
+    #footer-links h4 {font-size: 0.8rem;}
+    #footer-links p {
+        font-size: 1rem;
+        text-indent: 1rem;
+    }
+}
+
+@media screen and (any-hover: hover) {
+    #linksColB {display: unset;}
+    #linksColA {display: none;}
+}
 
 /* ~~~  Contact  ~~~ */
 
-
 #footer-contact {
     background-color: var(--aquaMd);
-    margin-top: 3vh;
     padding: 0 5%;
     padding-bottom: 5%;
     color: var(--blueMd);
@@ -616,18 +721,27 @@ input[type="textarea"] {
     color: #D00000;
 }
 
-/* ~~~  Media queries  ~~~ */
-
-@media screen and (any-hover: hover) {
-    #links-contact {
+@media screen and (any-hover: none) and (orientation: landscape) {
+    #footer-contact {
+        padding: 0 2vw;
+    }
+    #footer-contact h4 {
+        font-size: 0.8rem;
+    }
+    label {
+        font-size: 0.8rem;
+    }
+    .form-flex {
+        display: flex;
         flex-direction: row;
+        gap: 2vw;
     }
-    #links-contact > div {
-        width: 50vw;
+    input[type="textarea"] {
+        height: 5rem;
     }
-    #linksCol2 {display: unset;}
-    #linksCol1 {display: none;}
 }
+
+
 
 
 
@@ -652,7 +766,7 @@ footer > div:nth-child(1) {
     border-style: solid;
     border-color: var(--aquaMd);
     box-shadow: 0 0 15px 0 var(--aquaMd);
-    padding-top: 3%;
+    padding: 3% 0;
     color: var(--greenDk);
     font-weight: bold;
     text-wrap: nowrap;
@@ -662,23 +776,17 @@ footer > div:nth-child(1) {
     gap: 1rem;
 }
 
-footer > div:nth-child(1) > div:nth-child(2) img {
+footer > div:nth-child(1) > div:nth-child(3) img {
     /* this targets the email icon */
     height: 1.2rem;
     width: auto;
 }
 
-footer > div:nth-child(1) > div:nth-last-child(1) img {
+footer > div:nth-child(1) > div:nth-child(1) img {
     /* this targets the social media icons */
     padding: 0.5rem;
     height: 1.8rem;
 
-}
-
-footer > div:nth-last-child(1) {
-    font-size: 0.8rem;
-    text-align: center;
-    padding: 1rem;
 }
 
 #email-phone {
@@ -686,4 +794,19 @@ footer > div:nth-last-child(1) {
     flex-wrap: nowrap;
     align-items: center;
     gap: 1rem;
+}
+
+footer > div:nth-last-child(1) {
+    /* this targets the disclaimer section */
+    font-size: 0.8rem;
+    text-align: center;
+    padding: 1rem;
+}
+
+@media screen and (any-hover: none) and (orientation: landscape) {
+    footer > div:nth-child(1) {
+        flex-direction: row;
+        justify-content: space-evenly;
+        gap: 1vw;
+    }
 }
