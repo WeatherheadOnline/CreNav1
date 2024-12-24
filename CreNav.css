@@ -20,8 +20,6 @@ body {
     font-family: Helvetica, Arial, sans-serif;
 }
 
-svg.defs {position: absolute;}
-
 /* ************************ */
 /*  *****   Navbar   *****  */
 /* ************************ */
@@ -55,18 +53,23 @@ navbar {display: none;}
 /*  *****   Hamburger menu   *****  */
 /* ******************************* */
 
-#hamburger {
+#hamburger img {
+    filter: drop-shadow(0 0 1px #000000);
+    width: 5wv;
+    height: auto;
     position: fixed;
-    top: 10px;
-    right: 10px;
+    top: 3vw;
+    right: 3vw;
     z-index: 3;
-    /* height: auto;
-    width: auto; */
 }
 
-#hamburger img {
-    transform: scale(0.8);
-    filter: drop-shadow(0 0 1px #000000);
+@media screen and (any-hover: none) and (orientation: landscape) {
+    #hamburger img {
+        height: 7vh;
+        width: auto;
+        top: 8.5vh;
+        right: 10vh;
+    }
 }
 
 @media screen and (any-hover: hover) and (min-width: 683px) {
@@ -74,36 +77,57 @@ navbar {display: none;}
 }
 
 
+
 /* ******************************** */
 /*  *****   Landing screen   *****  */
 /* ******************************** */
 
+
 #landing {
-    position: relative;
     height: 100vh;
-    display: flex;
-    flex-direction: column;
+    min-height: max-content;
 }
 
 #landing-bkgd-container {
     background-image: url(assets/circle-bkgd-narrow.svg);
-    width: 100vw;
-    height: 80vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transform-origin: 50vw 50vw;
+    transform: rotate(90deg);
+    opacity: 0.8;
+    width: 90vh;
+    height: 100vw;
     position: absolute;
-    /* top: 40px; */
-    top: 3.2rem;
+    top: 10vh;
     left: 0;
     z-index: -1;
-    opacity: 0.8;
 }
 
-/* ~~~ Landing screen - text ~~~ */
+#landing > div:nth-child(2) {
+/* This targets the container holding the logo, text, and screenshot */
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+}
+
+@media screen and (any-hover: none) and (orientation: landscape) {
+    #landing > div:nth-child(2) {
+        flex-direction: row;
+        /* gap: 0; */
+    }
+    #landing-bkgd-container {
+        width: 100vw;
+        height: 80vh;
+        transform: rotate(0) translateY(5vh);
+    }
+}
+
+/* ~~~ Landing screen - text and logo ~~~ */
 
 #hero-text-logo {
     display: flex;
     flex-direction: column;
-    margin: 10px auto;
-    /* height: max-content; */
+    margin: 7% auto;
 }
 
 #logo {
@@ -111,7 +135,10 @@ navbar {display: none;}
     height: auto;
 }
 
-#hero-text {text-wrap: nowrap;}
+#hero-text {
+    text-wrap: nowrap;
+    padding-top: 5%;
+}
 
 h1 {
     color: var(--blueMd);
@@ -129,7 +156,25 @@ h2 {
 #hero-text p {
     color: var(--blueDk);
     font-style: italic;
-    margin-top: 3rem;
+    margin: 10vh 0 0 0;
+}
+
+@media screen and (any-hover: none) and (orientation: landscape) {
+    #hero-text-logo {margin: 5vh 5vw;}
+    #hero-text {
+        position: relative;
+        top: 0;
+    }
+    #logo {
+        position: absolute;
+        top: 3vh;
+        right: 14vw;
+        width: 50vh;
+        height: auto;
+    }
+    h1 {font-size: 2rem;}
+    h2 {font-size: 1.5rem;}
+    #hero-text p {font-size: 1rem;}
 }
 
 /* ~~~ Landing screen - image ~~~ */
@@ -143,11 +188,11 @@ h2 {
 
 #landing-img div div {
     /* this is the colored background behind the screenshot */
-    position: absolute;
-    width: 86%;
-    height: 73%;
-    margin: 5% 8%;
     background-color: var(--greenLt);
+    width: 86%;
+    height: 85%;
+    margin: 5% 8%;
+    position: absolute;
     z-index: -1;
 }
 
@@ -161,15 +206,25 @@ h2 {
     color: var(--blueMd);
     font-weight: bold;
     text-decoration: none;
-    font-size: 0.8rem;
+    font-size: 85%;
+    margin: 0;
     position: absolute;
-    top: 0.8rem;
-    left: 4.5rem;
+    top: 0.5rem;
+    left: 1rem;
 }
 
 #landing-img p span {font-size: 1rem;}
 
 #landing-img a {text-decoration: none;}
+
+@media screen and (any-hover: none) and (orientation: landscape) {
+    #landing-img div {
+        width: 40vw;
+        position: relative;
+        top: 50%;
+        transform: translateY(-33%);
+    }
+}
 
 @media screen and (any-hover: hover) {
     #landing {
@@ -186,37 +241,56 @@ h2 {
 /* ************************************ */
 
 #featured {
-    height: 100vh;
+    /* height: 100vh; */
+    width: 100vw;
     min-height: max-content;
-    display: flex;
-    flex-direction: column;
-    gap: 1vh;
     font-family: Arial;
+    display: grid;
+    grid-template-columns: 100vw;
+    gap: 1vh;
 }
 
-.featured-circle {
+.featured {}
 
+.colorblock {}
+
+.clearstack-front {}
+
+.featured-circle {opacity: 0.1;}
+
+.triangle {
+    height: 0;
+    width: 0;
+    border-top: 5vw solid transparent;
+    border-bottom: 5vw solid transparent;
+}
+
+@media screen and (any-hover: none) and (orientation: landscape) {
+    #featured {
+        grid-template-columns: 60vw 40vw;
+    }
 }
 
 /* ~~~ Featured section: Youth-based marketing ~~~ */
-
-#featured-marketing {
+#f-marketing {
     display: grid;
     grid-auto-flow: column;
-    grid-template-columns: 66.5vw 33.5vw;
+    grid-template-columns: 66.5% 33.5%;
     grid-template-rows: auto auto;
 }
-#featured-marketing img {
+
+#f-marketing img {
     width: 100%;
     height: auto;
 }
-#f-m-upper-left {
+
+#f-marketing div.colorblock {
     background-color: var(--greenLt);
     position: relative;
+    overflow: hidden;
 }
-/* #f-m-upper-left svg {fill: var(--blueDk);} */
-.f-m-upper-left-text {
-    width: 70%;
+
+#f-marketing div.colorblock div.clearstack-front {
     display: grid;
     grid-template-columns: auto auto;
     align-items: center;
@@ -224,163 +298,201 @@ h2 {
     bottom: 10px;
     right: 0;
 }
-.f-m-upper-left-text p {
+#f-marketing p {
     text-transform: uppercase;
     color: var(--blueMd);
-    font-size: 6vw;
+    font-size: 1.5rem;
     margin: 0;
-    margin-right: -5px;
+    margin-right: 2vw;
 }
-.f-m-upper-left-text span:nth-child(1) {font-size: 5vw;}
-.triangle {
-    height: 0;
-    width: 0;
-    border-top: 5vw solid transparent;
-    border-bottom: 5vw solid transparent;
-}
-.triangle.clearstack-front {
+#f-marketing span:nth-child(1) {font-size: 1rem}
+
+#f-marketing div.in-triangle {
     border-left: 6vw solid var(--blueMd);
+    margin-right: 2vw;
+    opacity: 0.4;
 }
-.clearstack-front {opacity: 0.5;}
-.clearstack-back p {opacity: 1;}
-.clearstack-front:hover {
-    opacity: 1;
-    text-shadow: 2px 2px 4px #00000088;
+
+#f-marketing div.colorblock svg {
+    height: 158%;
+    width: auto;
+    position: absolute;
+    top: 5%;
+    left: 24%;
+    stroke: var(--blueDk);
+    z-index: 0;
+}
+
+@media screen and (any-hover: none) and (orientation: landscape) {
+    #f-marketing div.in-triangle {
+        border-left-width: 6vh;
+        border-top-width: 5vh;
+        border-bottom-width: 5vh;
+    }
 }
 
 /* ~~~ Featured section: Our approach ~~~ */
 
-#featured-approach {
+#f-approach {
     position: relative;
 }
-#featured-approach img {
+#f-approach img {
     width: 100%;
     height: auto;
 }
 
-.fa-text {
+#f-approach div.clearstack-front {
     position: absolute;
     top: 0;
-    right: 0;
+    right: 0.5rem;
     z-index: 2;
     display: flex;
     align-items: center;
 }
 
-.fa-text p {
+#f-approach p {
     text-transform: uppercase;
     color: var(--aquaLt);
-    font-size: 4.5vw;
+    font-size: 1.2rem;
     margin: 0;
     margin-right: 8px;
     font-weight: bold;
 }
 
-.fa-text p span {
-    font-size: 12vw;
+#f-approach p span {
+    font-size: 2.8rem;
     vertical-align: middle;
     font-weight: normal;
 }
 
-.triangle.fa {
+#f-approach div.in-triangle {
     border-left: 6vw solid var(--aquaLt);
 }
 
-.triangle.fa.placeholder {
-    border-left: 6vw solid transparent;
+@media screen and (any-hover: none) and (orientation: landscape) {
+    #f-approach p {font-size: 4vh;}
+    #f-approach p span {font-size: 9vh;}
+    #f-approach div.in-triangle {
+        border-left-width: 5vh;
+        border-top-width: 4vh;
+        border-bottom-width: 4vh;
+    }
 }
 
 
 /* ~~~ Featured section: Portfolio ~~~ */
 
-#featured-portfolio {
-    width: 100%;
-    display: flex;
+#f-portfolio {
+    display: flex; 
+    margin-bottom: 0.5vh;
     align-items: center;
 }
 
-#fp-colorblock {
+#f-portfolio div.colorblock {
     width: 33%;
     background-color: var(--blueMd);
     height: 100%;
-    padding-left: 0.5rem;
     position: relative;
 }
 
-#fp-colorblock p {
+#f-portfolio p {
     display: inline;
     text-transform: uppercase;
     text-align: right;
     color: var(--aquaMd);
     font-size: 0.7rem;
     margin: 0;
-    position: absolute;
+    position: absolute;     /* relative to div.colorblock */
+    right: 1rem;
     top: 50%;
     transform: translateY(-50%);
     -webkit-transform: translateY(-50%);
+    padding-left: 0.5rem;
 }
 
-#fp-colorblock span {
-    font-size: 1.1rem;
-}
+#f-portfolio span {font-size: 1.1rem;}
 
-#featured-portfolio img {
+#f-portfolio img {
     width: 67%;
     height: auto;
 }
 
-.triangle.fp {
+#f-portfolio div.colorblock {overflow: hidden;}
+
+#f-portfolio div.out-triangle {
     border-top: 4vw solid transparent;
     border-bottom: 4vw solid transparent;
     border-left: 4vw solid var(--blueMd);
-    position: absolute;
+    position: absolute;    /* relative to #f-portfolio */
     left: 33%;
 }
 
+#f-portfolio svg {
+    position: absolute;   /* relative to div.colorblock */
+    top: 25%;
+    left: -25%;
+    height: 100%;
+    width: auto;
+}
+
+#f-portfolio circle.stroke {stroke: #000000; fill: none;}
+#f-portfolio circle.fill {fill: #000000; stroke: none;}
+
 /* ~~~ Featured section: action photos ~~~ */
 
-#featured-photos {
-    width: 100%;
+#f-photos {
     display: flex;
     align-items: center;
 }
 
-#fph-colorblock {
+#f-photos div.colorblock {
     width: 50%;
     background-color: var(--greenDk);
     height: 100%;
-    padding-left: 0.5rem;
     position: relative;
+    overflow: hidden;
 }
 
-#fph-colorblock p {
+#f-photos p {
     display: inline;
     text-transform: uppercase;
     color: var(--aquaMd);
+    text-align: left;
     font-size: 0.9rem;
     margin: 0;
     position: absolute;
+    left: 1rem;
     top: 50%;
     transform: translateY(-50%);
     -webkit-transform: translateY(-50%);
 }
 
-#fph-colorblock span {
-    font-size: 1.8rem;
-}
+#f-photos span {font-size: 1.8rem;}
 
-#featured-photos img {
+#f-photos img {
     width: 50%;
     height: auto;
 }
 
-.triangle.fph {
+#f-photos div.out-triangle {
     border-top: 6vw solid transparent;
     border-bottom: 6vw solid transparent;
     border-left: 6vw solid var(--greenDk);
     position: absolute;
     left: 50%;
 }
+
+#f-photos svg {
+    position: absolute;   /* relative to div.colorblock */
+    top: 15%;
+    right: -30%;
+    height: 120%;
+    width: auto;
+}
+
+#f-photos circle.stroke {stroke: var(--blueDk); fill: none;}
+#f-photos circle.fill {fill: var(--blueDk); stroke: none;}
+
 
 
 /* ************************************ */

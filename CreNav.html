@@ -6,39 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 <body>
-
-
-    <svg id="featured-circle-1" class="defs" width="100mm" height="100mm" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-            <g transform="matrix(1.1564,0,0,1.1564,-100,-329)">
-                <circle
-                    style="stroke:#fc1818;stroke-width:6; fill: none"
-                    cx="129.5" cy="327.7" r="40.2" />
-                <circle
-                    style="stroke:#fc1818;stroke-width:2.5; fill: none"
-                    cx="129.5" cy="327.7" r="29.5" />
-                <circle
-                    style="stroke:#fc1818;stroke-width:12; fill: none"
-                    cx="129.5" cy="327.7" r="14.2" />
-            </g>
-        </defs>
-    </svg>
-
-    <svg id="featured-circle-2" class="defs" width="100mm" height="100mm" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-            <g transform="matrix(2.678,0,0,2.678,-558.74,-626.74)">
-                <circle style="fill:none;stroke:#fc1818;stroke-width:0.7"
-                    cx="227.3" cy="252.7" r="18.3" />
-                <circle style="fill:none;stroke:#fc1818;stroke-width:3.9"
-                    cx="227.3" cy="252.7" r="13.5" />
-                <circle style="fill:#fc1818;fill-opacity:1"
-                    cx="227.3" cy="252.7" r="5.1" />
-            </g>
-        </defs>
-    </svg>
-    
-            
-
     <header>
         <navbar>
             <p>EXPERTISE</p>
@@ -54,77 +21,90 @@
     <main>
         <section id="landing">
             <div id="landing-bkgd-container"></div>    <!-- to hold circle background -->
-            <div id="hero-text-logo">
-                <img id="logo" src="assets/logo.svg">
-                <div id="hero-text">
-                    <h1>We are a youth<br>marketing<br>agency</h1>
-                    <h2>We create conversation.<br>We architect advocacy.</h2>
-                    <p>Empowering a new generation of consumers<br>to help build the brands they love.</p>
+            <div>
+                <div id="hero-text-logo">
+                    <img id="logo" src="assets/logo.svg">
+                    <div id="hero-text">
+                        <h1>We are a youth<br>marketing<br>agency</h1>
+                        <h2>We create conversation.<br>We architect advocacy.</h2>
+                        <p>Empowering a new generation of consumers<br>to help build the brands they love.</p>
+                    </div>
                 </div>
-            </div>
-            <div id="landing-img">
-                <a href="">
-                <div>
-                    <div></div>
-                    <img src="assets/featured-recent-bluestar.png">
-                    <p>What's new <span>></span></p>
+                <div id="landing-img">
+                    <a href="">
+                    <div>
+                        <div>
+                            <p>What's new <span>></span></p>
+                        </div>
+                        <img src="assets/featured-recent-bluestar.png">
+                    </div>
+                    </a>
                 </div>
-                </a>
             </div>
         </section>
 
         <section id="featured">
-
-            <div id="featured-marketing">
-                <div id="f-m-upper-left">
-
-                    <div class="f-m-upper-left-text  clearstack-behind">
+            <div class="featured" id="f-marketing">
+                <div class="colorblock">
+                    <svg class="featured-circle" width="100mm" height="100mm" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <g transform="matrix(1.1564,0,0,1.1564,-100,-329)">
+                            <circle style="stroke-width:6; fill: none" cx="129.5" cy="327.7" r="40.2" />
+                            <circle style="stroke-width:2.5; fill: none"cx="129.5" cy="327.7" r="29.5" />
+                            <circle style="stroke-width:12; fill: none"cx="129.5" cy="327.7" r="14.2" />
+                        </g>
+                    </svg>
+            
+                    <div class="clearstack-front">
                         <p><span>Youth-based</span><br><span>marketing</span></p>
+                        <div class="triangle in-triangle"></div>
                     </div>
-                    <div class="f-m-upper-left-text  clearstack-front">
-                        <img class="featured-circle" src="assets/featured-circle-1.svg">
-                        <p><span>Youth-based</span><br><span>marketing</span></p>
-                        <div class="triangle clearstack-front"></div>
-                    </div>
-                    
                 </div>
                 <div id="f-m-lower-left"><img src="assets/featured-bottom-2.jpg"></div>
                 <div id="f-m-upper-right"><img src="assets/featured-right-1.jpg"></div>
                 <div id="f-m-lower-right"><img src="assets/featured-bottom-right-3.jpg"></div>
             </div>
 
-            <div id="featured-approach">
+            <div class="featured" id="f-approach">
                 <img src="assets/our-approach.jpg">
-                <div class="fa-text clearstack-behind">
-                    <p><span>approach</span></p>
-                    <div class="triangle fa placeholder"></div>
-                </div>
-                <div class="fa-text clearstack-front">
+                <div class="clearstack-front">
                     <p>Our <span>approach</span></p>
-                    <div class="triangle fa"></div>
+                    <div class="triangle in-triangle"></div>
                 </div>
             </div>
 
-            <div id="featured-portfolio">
-                <div id="fp-colorblock">
-                    <div>
-                        <img class="featured-circle" src="assets/featured-circle-2.svg">
+            <div class="featured" id="f-portfolio">
+                <div class="colorblock">
+                    <div class="clearstack-front">
+                        <svg class="featured-circle" class="defs" width="100mm" height="100mm" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <g transform="matrix(2.678,0,0,2.678,-558.74,-626.74)">
+                                <circle class="stroke" style="stroke-width:0.7" cx="227.3" cy="252.7" r="18.3" />
+                                <circle class="stroke" style="stroke-width:3.9" cx="227.3" cy="252.7" r="13.5" />
+                                <circle class="fill" style="fill-opacity:1" cx="227.3" cy="252.7" r="5.1" />
+                            </g>
+                        </svg>
                         <p>Our<br><span>portfolio</span></p>
                     </div>
                 </div>
-                <div class="triangle fp"></div>
+                <div class="triangle out-triangle"></div>
                 <img src="assets/our-portfolio.jpg">
             </div>
 
-            <div id="featured-photos">
-                <div id="fph-colorblock">
-                    <img class="featured-circle" src="assets/featured-circle-2.svg">
-                    <p>Action & lifestyle<br><span>photos</span></p>
+            <div class="featured" id="f-photos">
+                <div class="colorblock">
+                    <div class="clearstack-front">
+                        <svg class="featured-circle" class="defs" width="100mm" height="100mm" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <g transform="matrix(2.678,0,0,2.678,-558.74,-626.74)">
+                                <circle class="stroke" style="stroke-width:0.7" cx="227.3" cy="252.7" r="18.3" />
+                                <circle class="stroke" style="stroke-width:3.9" cx="227.3" cy="252.7" r="13.5" />
+                                <circle class="fill" style="fill-opacity:1" cx="227.3" cy="252.7" r="5.1" />
+                            </g>
+                        </svg>
+                        <p>Action & lifestyle<br><span>photos</span></p>
+                    </div>
                 </div>
-                <div class="triangle fph"></div>
+                <div class="triangle out-triangle"></div>
                 <img src="assets/photo-callout.jpg">
             </div>
-            
         </section>
 
         <section id="services">
