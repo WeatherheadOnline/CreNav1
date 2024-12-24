@@ -26,7 +26,7 @@ body {
 
 navbar {display: none;}
 
-@media screen and (any-hover: hover) and (min-width: 683px) {
+@media (any-hover: hover) and (min-width: 683px) {
     navbar {
         color: var(--greenDk);
         background-color: var(--aquaMd);
@@ -63,7 +63,8 @@ navbar {display: none;}
     z-index: 3;
 }
 
-@media screen and (any-hover: none) and (orientation: landscape) {
+/* Mobile, in landscape */
+@media (any-hover: none) and (orientation: landscape) {
     #hamburger img {
         height: 7vh;
         width: auto;
@@ -72,7 +73,7 @@ navbar {display: none;}
     }
 }
 
-@media screen and (any-hover: hover) and (min-width: 683px) {
+@media (any-hover: hover) and (min-width: 683px) {
     #hamburger {display: none;}
 }
 
@@ -83,10 +84,7 @@ navbar {display: none;}
 /* ******************************** */
 
 
-#landing {
-    height: 100vh;
-    min-height: max-content;
-}
+#landing {height: 100vh;min-height: max-content;}
 
 #landing-bkgd-container {
     background-image: url(assets/circle-bkgd-narrow.svg);
@@ -110,17 +108,69 @@ navbar {display: none;}
     gap: 2vh;
 }
 
-@media screen and (any-hover: none) and (orientation: landscape) {
-    #landing > div:nth-child(2) {
-        flex-direction: row;
-        /* gap: 0; */
-    }
+/* Mobile, in landscape */
+@media (any-hover: none) and (orientation: landscape) {
+    #landing > div:nth-child(2) {flex-direction: row;}
     #landing-bkgd-container {
         width: 100vw;
         height: 80vh;
         transform: rotate(0) translateY(5vh);
     }
 }
+
+@media (any-hover: hover) and (max-width: 785px) {
+    #landing > div:nth-child(2) {
+        width: 600px;
+        height: 100vh;
+        min-height: max-content;
+        margin: 0 auto;
+    }
+    #landing-bkgd-container {
+        background-image: url(assets/circle-bkgd-wide.svg);
+        background-size: contain;
+        transform: rotate(0deg);
+        width: 1200px;
+        top: 85px;
+    }    
+}
+
+
+@media (any-hover: hover) and (min-width: 786px) and (max-width: 1199px){
+    #landing-bkgd-container {
+        background-image: url(assets/circle-bkgd-wide.svg);
+        background-size: contain;
+        transform: rotate(0deg);
+        width: 1200px;
+        top: 145px;
+    }
+    #landing > div:nth-child(2) {
+        /* This targets the container holding the logo, text, and screenshot */
+        flex-direction: row;
+        gap: 30px; 
+        justify-content: center;
+    }            
+}
+
+@media (any-hover: hover) and (min-width: 1200px){
+    #landing-bkgd-container {
+        background-image: url(assets/circle-bkgd-wide.svg);
+        background-size: contain;
+        transform: rotate(0deg);
+        width: 100vw;
+        min-width: 1400px;
+        top: 145px;
+    }
+    #landing > div:nth-child(2) {
+        /* This targets the container holding the logo, text, and screenshot */
+        flex-direction: row;
+        gap: 75px; 
+        justify-content: center;
+    }            
+}
+
+
+
+
 
 /* ~~~ Landing screen - text and logo ~~~ */
 
@@ -130,10 +180,7 @@ navbar {display: none;}
     margin: 7% auto;
 }
 
-#logo {
-    width: 55vw;
-    height: auto;
-}
+#logo {width: 55vw; height: auto;}
 
 #hero-text {
     text-wrap: nowrap;
@@ -159,12 +206,9 @@ h2 {
     margin: 10vh 0 0 0;
 }
 
-@media screen and (any-hover: none) and (orientation: landscape) {
+@media (any-hover: none) and (orientation: landscape) {
     #hero-text-logo {margin: 5vh 5vw;}
-    #hero-text {
-        position: relative;
-        top: 0;
-    }
+    #hero-text {position: relative; top: 0;}
     #logo {
         position: absolute;
         top: 3vh;
@@ -176,6 +220,44 @@ h2 {
     h2 {font-size: 1.5rem;}
     #hero-text p {font-size: 1rem;}
 }
+
+@media (any-hover: hover) and (max-width: 785px) {
+    #logo {width: 230px;}
+    h1 {margin: 0; font-size: 2.1rem;}
+    h2 {font-size: 1.3rem;}
+    #hero-text {padding-top: 15px;}
+    #hero-text p {font-size: 0.9rem; margin: 25px 0 0 0;}
+    #hero-text-logo {margin: 40px 0 0 80px;}
+
+}
+
+@media (any-hover: hover) and (max-width: 460px) {
+    #hero-text-logo {margin: 40px 0 0 20px;}
+}
+
+@media (any-hover: hover) and (min-width: 786px) and (max-width: 1199px){
+    #logo {width: 200px;}
+    #hero-text-logo {margin: 65px 0;}
+    #hero-text {padding-top: 35px;}
+    h1 {margin-top: 0; font-size: 2rem;}
+    h2 {font-size: 1.3rem;}
+    #hero-text p {
+        margin: 54px 0 0 0;
+        font-size: 0.9rem;
+    }
+}
+@media (any-hover: hover) and (min-width: 1200px){
+    #logo {width: 300px;}
+    #hero-text-logo {margin: 85px 0;}
+    h1 {margin-top: 0; font-size: 2.8rem;}
+    h2 {font-size: 1.8rem;}
+    #hero-text p {
+        margin: 54px 0 0 0;
+        font-size: 1.2rem;
+    }
+}
+
+
 
 /* ~~~ Landing screen - image ~~~ */
 
@@ -196,10 +278,7 @@ h2 {
     z-index: -1;
 }
 
-#landing-img img {
-    width: 100%;
-    height: auto;
-}
+#landing-img img {width: 100%; height: auto;}
 
 #landing-img p {
     text-transform: uppercase;
@@ -214,27 +293,83 @@ h2 {
 }
 
 #landing-img p span {font-size: 1rem;}
-
 #landing-img a {text-decoration: none;}
 
-@media screen and (any-hover: none) and (orientation: landscape) {
+@media (any-hover: none) and (orientation: landscape) {
     #landing-img div {
         width: 40vw;
         position: relative;
         top: 50%;
         transform: translateY(-33%);
     }
+    #landing-img div div {top: 25%;}
 }
 
-@media screen and (any-hover: hover) {
-    #landing {
-        flex-direction: row;
-        gap: 10px;
 
+
+@media (any-hover: hover) and (max-width: 785px) {
+    #landing-img div {
+        /* holds everything inside the link element: the screenshot, colored background, and text */
+        width: 550px;
+        height: 200px;
+        margin: 0 0 0 20px;
     }
+    #landing-img p {font-size: 1.1rem; left: 6.5rem;}
+}
+@media (any-hover: hover) and (max-width: 600px) {
+    #landing-img div {
+        /* holds everything inside the link element: the screenshot, colored background, and text */
+        width: 400px;
+        height: 200px;
+        margin-left: 50px;
+    }
+    #landing-img p {font-size: 0.9rem; left: 4rem;}
+}
+@media (any-hover: hover) and (max-width: 460px) {
+    #landing-img div {margin-left: 20px;}
 }
 
+@media (any-hover: hover) and (min-width: 786px) and (max-width: 1199px) {
+    #landing-img div {
+        /* holds everything inside the link element: the screenshot, colored background, and text */
+        width: 425px;
+        height: 362px;
+        margin: 0;
+        transform: translateY(-55px);
+    }
+    #landing-img div div {
+        /* this is the colored background behind the screenshot */
+        width: 345px;
+        height: 200px;
+        margin: 0;
+        position: relative;
+        transform: translateY(220px) translateX(30px);
+    }
+    #landing-img p {left: 5rem;}
 
+}
+
+@media (any-hover: hover) and (min-width: 1200px){
+    #landing {flex-direction: row; gap: 10px;}
+    #landing-img div {
+        /* holds everything inside the link element: the screenshot, colored background, and text */
+        width: 600px;
+        height: 362px;
+        margin: 0;
+        transform: translateY(-150px);
+    }
+    #landing-img div div {
+        /* this is the colored background behind the screenshot */
+        width: 515px;
+        height: 295px;
+        margin: 0;
+        position: relative;
+        transform: translateY(330px) translateX(50px);
+    }
+    #landing-img p {font-size: 1.2rem; left: 6.5rem;}
+    #landing-img p span {font-size: 1.5rem;}
+    #landing-img img {width: 100%; height: auto;}
+}
 
 /* ************************************ */
 /*  *****   "Featured" section   *****  */
@@ -261,15 +396,41 @@ h2 {
 .triangle {
     height: 0;
     width: 0;
-    border-top: 5vw solid transparent;
-    border-bottom: 5vw solid transparent;
 }
 
-@media screen and (any-hover: none) and (orientation: landscape) {
+@media (any-hover: none) and (orientation: landscape) {
     #featured {
         grid-template-columns: 60vw 40vw;
     }
 }
+
+@media (any-hover: hover) and (max-width: 799px){
+    #featured {
+        width: 500px;
+        margin: 0 auto;
+        grid-template-columns: 100%;
+        gap: 20px;
+    }
+}
+
+@media (any-hover: hover) and (min-width: 800px){
+    #featured {
+        width: 800px;
+        margin: 0 auto;
+        grid-template-columns: 60% 40%;
+        gap: 10px;
+    }
+}
+
+@media (any-hover: hover) and (min-width: 1000px){
+    #featured {
+        width: 1000px;
+        margin: 0 auto;
+        grid-template-columns: 60% 40%;
+        gap: 10px;
+    }
+}
+
 
 /* ~~~ Featured section: Youth-based marketing ~~~ */
 #f-marketing {
@@ -309,6 +470,8 @@ h2 {
 
 #f-marketing div.in-triangle {
     border-left: 6vw solid var(--blueMd);
+    border-top: 5vw solid transparent;
+    border-bottom: 5vw solid transparent;
     margin-right: 2vw;
     opacity: 0.4;
 }
@@ -323,12 +486,28 @@ h2 {
     z-index: 0;
 }
 
-@media screen and (any-hover: none) and (orientation: landscape) {
+@media (any-hover: none) and (orientation: landscape) {
     #f-marketing div.in-triangle {
         border-left-width: 6vh;
         border-top-width: 5vh;
         border-bottom-width: 5vh;
     }
+}
+
+
+@media (any-hover: hover) {
+    #f-marketing div.in-triangle {
+        border-left-width: 35px;
+        border-top-width: 30px;
+        border-bottom-width: 30px;
+        margin-right: 20px;
+        opacity: 0.4;
+    }
+    #f-marketing p {
+        font-size: 2rem;
+        margin-right: 20px;
+    }
+    
 }
 
 /* ~~~ Featured section: Our approach ~~~ */
@@ -367,9 +546,11 @@ h2 {
 
 #f-approach div.in-triangle {
     border-left: 6vw solid var(--aquaLt);
+    border-top: 5vw solid transparent;
+    border-bottom: 5vw solid transparent;
 }
 
-@media screen and (any-hover: none) and (orientation: landscape) {
+@media (any-hover: none) and (orientation: landscape) {
     #f-approach p {font-size: 4vh;}
     #f-approach p span {font-size: 9vh;}
     #f-approach div.in-triangle {
@@ -379,6 +560,56 @@ h2 {
     }
 }
 
+@media (any-hover: hover) {
+    #f-approach p {
+        text-align: right;
+        font-weight: normal;
+    }
+}
+
+@media (any-hover: hover) and (max-width: 799px){
+    #f-approach p {
+        font-size: 1.4rem;
+        padding-right: 8px;
+    }
+    #f-approach p span {
+        font-size: 3.6rem;
+    }    
+    #f-approach div.in-triangle {
+        border-left-width: 30px;
+        border-top-width: 25px;
+        border-bottom-width: 25px;
+    }    
+}
+
+@media (any-hover: hover) and (min-width: 800px){
+    #f-approach p {
+        font-size: 1rem;
+        padding-right: 4px;
+    }
+    #f-approach p span {
+        font-size: 2.25rem;
+    }    
+    #f-approach div.in-triangle {
+        border-left-width: 20px;
+        border-top-width: 15px;
+        border-bottom-width: 15px;
+    }    
+}
+
+@media (any-hover: hover) and (min-width: 1000px){
+    #f-approach p {
+        font-size: 1.2rem;
+    }
+    #f-approach p span {
+        font-size: 2.85rem;
+    }    
+    #f-approach div.in-triangle {
+        border-left-width: 25px;
+        border-top-width: 20px;
+        border-bottom-width: 20px;
+    }    
+}
 
 /* ~~~ Featured section: Portfolio ~~~ */
 
@@ -441,7 +672,6 @@ h2 {
     border-bottom: 4vw solid transparent;
     border-left: 4vw solid var(--blueMd);
     z-index: 3;
-
 }
 
 #f-portfolio svg {
@@ -455,7 +685,7 @@ h2 {
 #f-portfolio circle.stroke {stroke: #000000; fill: none;}
 #f-portfolio circle.fill {fill: #000000; stroke: none;}
 
-@media screen and (any-hover: none) and (orientation: landscape) {
+@media (any-hover: none) and (orientation: landscape) {
     #f-portfolio div.colorblock::after {
         top: calc(50% - 2.5vw);
         right: -2.4vw;
@@ -463,6 +693,48 @@ h2 {
         border-bottom: 2.5vw solid transparent;
         border-left: 2.5vw solid var(--blueMd);
        
+    }
+}
+
+@media (any-hover: hover) and (max-width: 799px){
+    #f-portfolio p {
+        font-size: 1rem;
+    }    
+    #f-portfolio span {font-size: 1.5rem;}
+    #f-portfolio div.colorblock::after {
+        top: calc(50% - 20px);
+        right: -20px;
+        border-top: 20px solid transparent;
+        border-bottom: 20px solid transparent;
+        border-left: 20px solid var(--blueMd);
+    }
+}
+
+@media (any-hover: hover) and (min-width: 800px){
+    #f-portfolio p {
+        font-size: 0.9rem;
+    }    
+    #f-portfolio span {font-size: 1.4rem;}
+    #f-portfolio div.colorblock::after {
+        top: calc(50% - 20px);
+        right: -20px;
+        border-top: 20px solid transparent;
+        border-bottom: 20px solid transparent;
+        border-left: 20px solid var(--blueMd);
+    }
+}
+
+@media (any-hover: hover) and (min-width: 1000px){
+    #f-portfolio p {
+        font-size: 1.2rem;
+    }    
+    #f-portfolio span {font-size: 1.8rem;}
+    #f-portfolio div.colorblock::after {
+        top: calc(50% - 25px);
+        right: -25px;
+        border-top: 25px solid transparent;
+        border-bottom: 25px solid transparent;
+        border-left: 25px solid var(--blueMd);
     }
 }
 
@@ -533,16 +805,52 @@ h2 {
 #f-photos circle.stroke {stroke: var(--blueDk); fill: none;}
 #f-photos circle.fill {fill: var(--blueDk); stroke: none;}
 
-@media screen and (any-hover: none) and (orientation: landscape) {
+@media (any-hover: none) and (orientation: landscape) {
     #f-photos div.colorblock::after {
         top: calc(50% - 3vw);
         right: -2.9vw;
-        border-top: 3vw solid transparent;
-        border-bottom: 3vw solid transparent;
-        border-left: 3vw solid var(--greenDk);
-    }
-    
+        border-top-width: 3vw;
+        border-bottom-width: 3vw;
+        border-left-width: 3vw;
+    } 
 }
+
+@media (any-hover: hover) and (max-width: 799px){
+    #f-photos p {font-size: 1.3rem;}
+    #f-photos span {font-size: 2.6rem;}
+    #f-photos div.colorblock::after {
+        top: calc(50% - 38px);
+        right: -38px;
+        border-top-width: 38px;
+        border-bottom-width: 38px;
+        border-left-width: 38px;
+    }
+}
+
+@media (any-hover: hover) and (min-width: 800px){
+    #f-photos p {font-size: 0.8rem;}
+    #f-photos span {font-size: 1.7rem;}
+    #f-photos div.colorblock::after {
+        top: calc(50% - 25px);
+        right: -25px;
+        border-top-width: 25px;
+        border-bottom-width: 25px;
+        border-left-width: 25px;
+    }
+}
+
+@media (any-hover: hover) and (min-width: 1000px){
+    #f-photos p {font-size: 1rem;}
+    #f-photos span {font-size: 2rem;}
+    #f-photos div.colorblock::after {
+        top: calc(50% - 28px);
+        right: -28px;
+        border-top-width: 28px;
+        border-bottom-width: 28px;
+        border-left-width: 28px;
+    }
+}
+
 
 /* ************************************ */
 /*  *****   "Services" section   *****  */
@@ -582,7 +890,7 @@ h2 {
     display: none;
 }
 
-@media screen and (any-hover: none) and (orientation: landscape) {
+@media not ((any-hover: none) and (orientation: portrait)) {
     #services {
         flex-direction: row;
         padding: 2vw;
@@ -612,23 +920,18 @@ h2 {
     }
 }
 
-@media screen and (any-hover: hover) {
-    #services {
-        flex-direction: row;
-    }
-    .services-wrapper {
-        flex-direction: column;
-    }
-    .services-wrapper img {
-        width: 20vw;
-        max-width: 100px;
-        height: auto;
-    }
-    .services-text p {
-        display: unset;
-    }
+@media (any-hover: none) and (orientation: landscape) {
+
 }
 
+
+@media (any-hover: hover) and (min-width: 1200px){
+
+}
+
+@media (any-hover: hover) and (max-width: 1199px){
+
+}
 
 
 /* ************************************************* */
@@ -645,12 +948,12 @@ h4 {
     text-transform: uppercase;
 }
 
-@media screen and (any-hover: none) and (orientation: landscape) {
+@media (any-hover: none) and (orientation: landscape) {
     #links-contact {flex-direction: row;}
     #links-contact > div {width: 50vw;}
 }
 
-@media screen and (any-hover: hover) {
+@media (any-hover: hover) {
     #links-contact {
         flex-direction: row;
     }
@@ -658,6 +961,15 @@ h4 {
         width: 50vw;
     }
 }
+
+@media (any-hover: hover) and (min-width: 1200px){
+
+}
+
+@media (any-hover: hover) and (max-width: 1199px){
+
+}
+
 
 /* ~~~  Links  ~~~~ */
 
@@ -680,7 +992,7 @@ h4 {
 
 #linksColB {display: none;}
 
-@media screen and (any-hover: none) and (orientation: landscape) {
+@media (any-hover: none) and (orientation: landscape) {
     #footer-links {padding: 0 2vw;}
     #footer-links h4 {font-size: 0.8rem;}
     #footer-links p {
@@ -689,9 +1001,17 @@ h4 {
     }
 }
 
-@media screen and (any-hover: hover) {
+@media (any-hover: hover) {
     #linksColB {display: unset;}
     #linksColA {display: none;}
+}
+
+@media (any-hover: hover) and (min-width: 1200px){
+
+}
+
+@media (any-hover: hover) and (max-width: 1199px){
+
 }
 
 /* ~~~  Contact  ~~~ */
@@ -721,7 +1041,7 @@ input[type="textarea"] {
     color: #D00000;
 }
 
-@media screen and (any-hover: none) and (orientation: landscape) {
+@media (any-hover: none) and (orientation: landscape) {
     #footer-contact {
         padding: 0 2vw;
     }
@@ -741,8 +1061,13 @@ input[type="textarea"] {
     }
 }
 
+@media (any-hover: hover) and (min-width: 1200px){
 
+}
 
+@media (any-hover: hover) and (max-width: 1199px){
+
+}
 
 
 /* ********************************** */
@@ -803,10 +1128,18 @@ footer > div:nth-last-child(1) {
     padding: 1rem;
 }
 
-@media screen and (any-hover: none) and (orientation: landscape) {
+@media (any-hover: none) and (orientation: landscape) {
     footer > div:nth-child(1) {
         flex-direction: row;
         justify-content: space-evenly;
         gap: 1vw;
     }
+}
+
+@media (any-hover: hover) and (min-width: 1200px){
+
+}
+
+@media (any-hover: hover) and (max-width: 1199px){
+
 }
