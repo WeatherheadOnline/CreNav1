@@ -138,7 +138,7 @@ navbar {display: none;}
 @media (any-hover: hover) and (min-width: 786px) and (max-width: 1199px){
     #landing-bkgd-container {
         background-image: url(assets/circle-bkgd-wide.svg);
-        background-size: contain;
+        background-size: auto 60vh;
         transform: rotate(0deg);
         width: 1200px;
         top: 145px;
@@ -154,7 +154,8 @@ navbar {display: none;}
 @media (any-hover: hover) and (min-width: 1200px){
     #landing-bkgd-container {
         background-image: url(assets/circle-bkgd-wide.svg);
-        background-size: contain;
+        background-size: auto 60vh;
+        background-position: center top;
         transform: rotate(0deg);
         width: 100vw;
         min-width: 1400px;
@@ -305,8 +306,6 @@ h2 {
     #landing-img div div {top: 25%;}
 }
 
-
-
 @media (any-hover: hover) and (max-width: 785px) {
     #landing-img div {
         /* holds everything inside the link element: the screenshot, colored background, and text */
@@ -346,7 +345,6 @@ h2 {
         transform: translateY(220px) translateX(30px);
     }
     #landing-img p {left: 5rem;}
-
 }
 
 @media (any-hover: hover) and (min-width: 1200px){
@@ -404,6 +402,12 @@ h2 {
     }
 }
 
+@media (any-hover: hover) {
+    #featured {
+        padding-bottom: 30px;
+    }
+}
+
 @media (any-hover: hover) and (max-width: 799px){
     #featured {
         width: 500px;
@@ -420,6 +424,7 @@ h2 {
         grid-template-columns: 60% 40%;
         gap: 10px;
     }
+
 }
 
 @media (any-hover: hover) and (min-width: 1000px){
@@ -860,11 +865,10 @@ h2 {
     background-color: #FFFFFF;
     display: flex;
     flex-direction: column;
-    margin-top: 3vh;
+    padding: 3vh 0;
     border-width: 3px 0;
     border-color: var(--aquaMd);
     border-style: solid;
-    box-shadow: 0 0 15px 0 var(--aquaMd);
 }
 
 .services-wrapper{
@@ -890,10 +894,11 @@ h2 {
     display: none;
 }
 
-@media not ((any-hover: none) and (orientation: portrait)) {
+/* @media (any-hover: none) and (orientation: landscape), (any-hover: hover) { */
+@media (any-hover: none) and (orientation: landscape) {
     #services {
         flex-direction: row;
-        padding: 2vw;
+        padding: 5vw 2vw;
     }
     .services-wrapper {
         flex-direction: column;
@@ -902,8 +907,9 @@ h2 {
         width: 22vw;
     }
     .services-wrapper img {
-        width: 10vw;
+        width: 9vw;
         height: auto;
+        padding: 2vw;
     }
     .services-text h3 {
         font-size: 1rem;
@@ -920,18 +926,62 @@ h2 {
     }
 }
 
-@media (any-hover: none) and (orientation: landscape) {
-
+@media (any-hover: hover) {
+    .services-text h3 {
+        font-size: 1rem;
+        text-align: center;
+        margin: 0;
+    }
+    .services-text p {
+        display: block;
+        text-align: center;
+        font-size: 0.8rem;
+        line-height: 1.2rem;
+    }
 }
 
 
-@media (any-hover: hover) and (min-width: 1200px){
-
+@media (any-hover: hover) and (max-width: 785px){
+    #services {
+        align-items: center;
+    }
+    .services-wrapper {
+        margin: 0;
+        width: 400px;
+        padding: 10px 0;
+        align-items: center;
+    }
+    .services-wrapper img {
+        width: 100px;
+        height: 100px;
+        padding: 20px;
+    }
+    .services-text {
+        padding: 20px;
+    }
 }
 
-@media (any-hover: hover) and (max-width: 1199px){
 
+
+@media (any-hover: hover) and (min-width: 786px){
+    #services {
+        flex-direction: row;
+        gap: 20px;
+        justify-content: center;
+    }
+    .services-wrapper {
+        margin: 0;
+        width: 162px;
+        flex-direction: column;
+        align-items: center;
+    }
+    .services-wrapper img {
+        width: 80px;
+        height: auto;
+        padding: 40px;
+    }
 }
+
 
 
 /* ************************************************* */
@@ -941,7 +991,7 @@ h2 {
 #links-contact {
     display: flex;
     flex-direction: column-reverse;
-    margin-top: 3vh;
+    /* margin-top: 3vh; */
 }
 
 h4 {
@@ -953,7 +1003,7 @@ h4 {
     #links-contact > div {width: 50vw;}
 }
 
-@media (any-hover: hover) {
+@media (any-hover: hover) and (min-width: 650px) {
     #links-contact {
         flex-direction: row;
     }
@@ -977,8 +1027,10 @@ h4 {
     background-color: var(--greenLt);
     display: grid;
     grid-auto-flow: column dense;
-    grid-template-columns: auto auto;
-    padding: 0 5%;
+    grid-template-columns: max-content max-content;
+    gap: 5%;
+    padding: 2% 2% 5% 0;
+    justify-content: center;
 }
 
 #footer-links h4 {
@@ -993,7 +1045,7 @@ h4 {
 #linksColB {display: none;}
 
 @media (any-hover: none) and (orientation: landscape) {
-    #footer-links {padding: 0 2vw;}
+    #footer-links {padding: 2% 2% 5% 0; gap: 10%;}
     #footer-links h4 {font-size: 0.8rem;}
     #footer-links p {
         font-size: 1rem;
@@ -1001,9 +1053,24 @@ h4 {
     }
 }
 
-@media (any-hover: hover) {
+@media (any-hover: hover) and (min-width: 650px) {
+    #footer-links {padding: 10px 0 0 0;}
+}
+
+@media (any-hover: hover) and (max-width: 999px) {
+    #footer-links {gap: calc(50% - 150px);}
+
+}
+
+@media (any-hover: hover) and (min-width: 1000px) {
+    #footer-links {gap: calc(33% - 150px);}
     #linksColB {display: unset;}
     #linksColA {display: none;}
+    
+}
+
+@media (any-hover: hover) and (max-width: 785px) {
+
 }
 
 @media (any-hover: hover) and (min-width: 1200px){
@@ -1018,10 +1085,13 @@ h4 {
 
 #footer-contact {
     background-color: var(--aquaMd);
-    padding: 0 5%;
     padding-bottom: 5%;
     color: var(--blueMd);
 }    
+
+#footer-contact form {
+    padding: 0 5%;
+}
 
 label {
     display: block;
@@ -1061,13 +1131,27 @@ input[type="textarea"] {
     }
 }
 
-@media (any-hover: hover) and (min-width: 1200px){
-
+@media (any-hover: hover) and (min-width: 650px) {
+    #footer-contact {
+        padding-bottom: 0;
+    }
 }
 
-@media (any-hover: hover) and (max-width: 1199px){
-
+@media (any-hover: hover) and (min-width: 1000px) {
+    .form-flex {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        width: 98%;
+    }
+    .form-flex label {
+        width: 100%;
+    }
 }
+
+@media (any-hover: hover) and (min-width: 1200px){}
+
+@media (any-hover: hover) and (max-width: 1199px){}
 
 
 /* ********************************** */
@@ -1090,7 +1174,6 @@ footer > div:nth-child(1) {
     border-width: 3px 0;
     border-style: solid;
     border-color: var(--aquaMd);
-    box-shadow: 0 0 15px 0 var(--aquaMd);
     padding: 3% 0;
     color: var(--greenDk);
     font-weight: bold;
@@ -1136,10 +1219,16 @@ footer > div:nth-last-child(1) {
     }
 }
 
-@media (any-hover: hover) and (min-width: 1200px){
+@media (any-hover: hover) and (min-width: 700px) {
+    footer > div:nth-child(1) {
+        flex-direction: row;
+        justify-content: space-evenly;
+        gap: 1vw;
+    }
 
 }
 
-@media (any-hover: hover) and (max-width: 1199px){
 
-}
+@media (any-hover: hover) and (min-width: 1200px){}
+
+@media (any-hover: hover) and (max-width: 1199px){}
