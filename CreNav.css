@@ -8,6 +8,13 @@
 }
 
 
+@media (any-hover: none) {
+    :root {
+        --greenLt: #7df487;
+        --aquaMd: #c4fff8;
+    }
+}
+
 html, body {
     margin: 0;
     padding: 0;
@@ -15,18 +22,45 @@ html, body {
     top: 0;
     overflow-x: hidden;
 }
+
 body {
     background-color: var(--aquaLt);
     font-family: Helvetica, Arial, sans-serif;
 }
 
-/* ************************ */
-/*  *****   Navbar   *****  */
-/* ************************ */
+
+/* **************************************** */
+/*  *****   Navbar & Hamburger menu  *****  */
+/* **************************************** */
+
+
+/* First: mobile, in portrait */
 
 navbar {display: none;}
 
+#hamburger img {
+    filter: drop-shadow(0 0 1px #000000);
+    width: 5wv;
+    height: auto;
+    position: fixed;
+    top: 3vw;
+    right: 3vw;
+    z-index: 3;
+}
+
+/* Mobile, in landscape */
+@media (any-hover: none) and (orientation: landscape) {
+    #hamburger img {
+        height: 7vh;
+        width: auto;
+        top: 8.5vh;
+        right: 10vh;
+    }
+}
+
+/* Desktop, screen is at least 683px wide, eg. 1366px-wide screen, with window at half width */
 @media (any-hover: hover) and (min-width: 683px) {
+    #hamburger {display: none;}
     navbar {
         color: var(--greenDk);
         background-color: var(--aquaMd);
@@ -49,40 +83,12 @@ navbar {display: none;}
 }
 
 
-/* ******************************* */
-/*  *****   Hamburger menu   *****  */
-/* ******************************* */
-
-#hamburger img {
-    filter: drop-shadow(0 0 1px #000000);
-    width: 5wv;
-    height: auto;
-    position: fixed;
-    top: 3vw;
-    right: 3vw;
-    z-index: 3;
-}
-
-/* Mobile, in landscape */
-@media (any-hover: none) and (orientation: landscape) {
-    #hamburger img {
-        height: 7vh;
-        width: auto;
-        top: 8.5vh;
-        right: 10vh;
-    }
-}
-
-@media (any-hover: hover) and (min-width: 683px) {
-    #hamburger {display: none;}
-}
-
-
-
 /* ******************************** */
 /*  *****   Landing screen   *****  */
 /* ******************************** */
 
+
+/* First: mobile, in portrait */
 
 #landing {height: 100vh;min-height: max-content;}
 
@@ -101,79 +107,11 @@ navbar {display: none;}
     z-index: -1;
 }
 
-#landing > div:nth-child(2) {
-/* This targets the container holding the logo, text, and screenshot */
+#landing > div:nth-child(2) {  /* This targets the container holding the logo, text, and screenshot */
     display: flex;
     flex-direction: column;
     gap: 2vh;
 }
-
-/* Mobile, in landscape */
-@media (any-hover: none) and (orientation: landscape) {
-    #landing > div:nth-child(2) {flex-direction: row;}
-    #landing-bkgd-container {
-        width: 100vw;
-        height: 80vh;
-        transform: rotate(0) translateY(5vh);
-    }
-}
-
-@media (any-hover: hover) and (max-width: 785px) {
-    #landing > div:nth-child(2) {
-        width: 600px;
-        height: 100vh;
-        min-height: max-content;
-        margin: 0 auto;
-    }
-    #landing-bkgd-container {
-        background-image: url(assets/circle-bkgd-wide.svg);
-        background-size: contain;
-        transform: rotate(0deg);
-        width: 1200px;
-        top: 85px;
-    }    
-}
-
-
-@media (any-hover: hover) and (min-width: 786px) and (max-width: 1199px){
-    #landing-bkgd-container {
-        background-image: url(assets/circle-bkgd-wide.svg);
-        background-size: auto 60vh;
-        transform: rotate(0deg);
-        width: 1200px;
-        top: 145px;
-    }
-    #landing > div:nth-child(2) {
-        /* This targets the container holding the logo, text, and screenshot */
-        flex-direction: row;
-        gap: 30px; 
-        justify-content: center;
-    }            
-}
-
-@media (any-hover: hover) and (min-width: 1200px){
-    #landing-bkgd-container {
-        background-image: url(assets/circle-bkgd-wide.svg);
-        background-size: auto 60vh;
-        background-position: center top;
-        transform: rotate(0deg);
-        width: 100vw;
-        min-width: 1400px;
-        top: 145px;
-    }
-    #landing > div:nth-child(2) {
-        /* This targets the container holding the logo, text, and screenshot */
-        flex-direction: row;
-        gap: 75px; 
-        justify-content: center;
-    }            
-}
-
-
-
-
-
-/* ~~~ Landing screen - text and logo ~~~ */
 
 #hero-text-logo {
     display: flex;
@@ -207,70 +145,13 @@ h2 {
     margin: 10vh 0 0 0;
 }
 
-@media (any-hover: none) and (orientation: landscape) {
-    #hero-text-logo {margin: 5vh 5vw;}
-    #hero-text {position: relative; top: 0;}
-    #logo {
-        position: absolute;
-        top: 3vh;
-        right: 14vw;
-        width: 50vh;
-        height: auto;
-    }
-    h1 {font-size: 2rem;}
-    h2 {font-size: 1.5rem;}
-    #hero-text p {font-size: 1rem;}
-}
-
-@media (any-hover: hover) and (max-width: 785px) {
-    #logo {width: 230px;}
-    h1 {margin: 0; font-size: 2.1rem;}
-    h2 {font-size: 1.3rem;}
-    #hero-text {padding-top: 15px;}
-    #hero-text p {font-size: 0.9rem; margin: 25px 0 0 0;}
-    #hero-text-logo {margin: 40px 0 0 80px;}
-
-}
-
-@media (any-hover: hover) and (max-width: 460px) {
-    #hero-text-logo {margin: 40px 0 0 20px;}
-}
-
-@media (any-hover: hover) and (min-width: 786px) and (max-width: 1199px){
-    #logo {width: 200px;}
-    #hero-text-logo {margin: 65px 0;}
-    #hero-text {padding-top: 35px;}
-    h1 {margin-top: 0; font-size: 2rem;}
-    h2 {font-size: 1.3rem;}
-    #hero-text p {
-        margin: 54px 0 0 0;
-        font-size: 0.9rem;
-    }
-}
-@media (any-hover: hover) and (min-width: 1200px){
-    #logo {width: 300px;}
-    #hero-text-logo {margin: 85px 0;}
-    h1 {margin-top: 0; font-size: 2.8rem;}
-    h2 {font-size: 1.8rem;}
-    #hero-text p {
-        margin: 54px 0 0 0;
-        font-size: 1.2rem;
-    }
-}
-
-
-
-/* ~~~ Landing screen - image ~~~ */
-
-#landing-img div {
-    /* holds everything inside the link element: the screenshot, colored background, and text */
+#landing-img div {  /* holds everything inside the link element: the screenshot, colored background, and text */
     width: 95vw;
     margin: 0 2.5vw;
     position: relative;
 }
 
-#landing-img div div {
-    /* this is the colored background behind the screenshot */
+#landing-img div div {  /* this is the colored background behind the screenshot */
     background-color: var(--greenLt);
     width: 86%;
     height: 85%;
@@ -296,7 +177,28 @@ h2 {
 #landing-img p span {font-size: 1rem;}
 #landing-img a {text-decoration: none;}
 
+
+/* Landing section: Mobile, in landscape */
+
 @media (any-hover: none) and (orientation: landscape) {
+    #landing > div:nth-child(2) {flex-direction: row;}
+    #landing-bkgd-container {
+        width: 100vw;
+        height: 80vh;
+        transform: rotate(0) translateY(5vh);
+    }
+    #hero-text-logo {margin: 5vh 5vw;}
+    #hero-text {position: relative; top: 0;}
+    #logo {
+        position: absolute;
+        top: 3vh;
+        right: 14vw;
+        width: 50vh;
+        height: auto;
+    }
+    h1 {font-size: 2rem;}
+    h2 {font-size: 1.5rem;}
+    #hero-text p {font-size: 1rem;}
     #landing-img div {
         width: 40vw;
         position: relative;
@@ -306,38 +208,89 @@ h2 {
     #landing-img div div {top: 25%;}
 }
 
-@media (any-hover: hover) and (max-width: 785px) {
-    #landing-img div {
-        /* holds everything inside the link element: the screenshot, colored background, and text */
-        width: 550px;
-        height: 200px;
-        margin: 0 0 0 20px;
-    }
-    #landing-img p {font-size: 1.1rem; left: 6.5rem;}
+
+/* Landing section: Desktop */
+
+
+    /* Desktop: screen width below 460px and below 600px */
+
+@media (any-hover: hover) and (max-width: 460px) {
+    #hero-text-logo {margin: 40px 0 0 20px;}
+    #landing-img div {margin-left: 20px;}   /* holds everything inside the link element: the screenshot, colored background, and text */
 }
+
 @media (any-hover: hover) and (max-width: 600px) {
     #landing-img div {
-        /* holds everything inside the link element: the screenshot, colored background, and text */
         width: 400px;
         height: 200px;
         margin-left: 50px;
     }
     #landing-img p {font-size: 0.9rem; left: 4rem;}
 }
-@media (any-hover: hover) and (max-width: 460px) {
-    #landing-img div {margin-left: 20px;}
+
+
+    /* Desktop: screen width up to 786px */
+
+@media (any-hover: hover) and (max-width: 785px) {
+    #landing > div:nth-child(2) {
+        width: 600px;
+        height: 100vh;
+        min-height: max-content;
+        margin: 0 auto;
+    }
+    #landing-bkgd-container {
+        background-image: url(assets/circle-bkgd-wide.svg);
+        background-size: contain;
+        transform: rotate(0deg);
+        width: 1200px;
+        top: 85px;
+    }    
+    #hero-text-logo {margin: 40px 0 0 80px;}
+    #logo {width: 230px;}
+    #hero-text {padding-top: 15px;}
+    h1 {margin: 0; font-size: 2.1rem;}
+    h2 {font-size: 1.3rem;}
+    #hero-text p {font-size: 0.9rem; margin: 25px 0 0 0;}
+    #landing-img div {
+        width: 550px;
+        height: 200px;
+        margin: 0 0 0 20px;
+    }
+    #landing-img p {font-size: 1.1rem; left: 6.5rem;}
 }
 
-@media (any-hover: hover) and (min-width: 786px) and (max-width: 1199px) {
-    #landing-img div {
-        /* holds everything inside the link element: the screenshot, colored background, and text */
+
+    /* Desktop: screen width between 786px and 1200px */
+
+@media (any-hover: hover) and (min-width: 786px) and (max-width: 1199px){
+    #landing-bkgd-container {
+        background-image: url(assets/circle-bkgd-wide.svg);
+        background-size: auto 60vh;
+        transform: rotate(0deg);
+        width: 1200px;
+        top: 145px;
+    }
+    #landing > div:nth-child(2) { /* This targets the container holding the logo, text, and screenshot */
+        flex-direction: row;
+        gap: 30px; 
+        justify-content: center;
+    }            
+    #hero-text-logo {margin: 65px 0;}
+    #logo {width: 200px;}
+    #hero-text {padding-top: 35px;}
+    h1 {margin-top: 0; font-size: 2rem;}
+    h2 {font-size: 1.3rem;}
+    #hero-text p {
+        margin: 54px 0 0 0;
+        font-size: 0.9rem;
+    }
+    #landing-img div {   /* holds everything inside the link element: the screenshot, colored background, and text */
         width: 425px;
         height: 362px;
         margin: 0;
         transform: translateY(-55px);
     }
-    #landing-img div div {
-        /* this is the colored background behind the screenshot */
+    #landing-img div div {  /* this is the colored background behind the screenshot */
         width: 345px;
         height: 200px;
         margin: 0;
@@ -347,17 +300,40 @@ h2 {
     #landing-img p {left: 5rem;}
 }
 
+
+    /* Desktop: screen width over 1200px */
+
 @media (any-hover: hover) and (min-width: 1200px){
+    #landing-bkgd-container {
+        background-image: url(assets/circle-bkgd-wide.svg);
+        background-size: auto 60vh;
+        background-position: center top;
+        transform: rotate(0deg);
+        width: 100vw;
+        min-width: 1400px;
+        top: 145px;
+    }
+    #landing > div:nth-child(2) {   /* This targets the container holding the logo, text, and screenshot */
+        flex-direction: row;
+        gap: 75px; 
+        justify-content: center;
+    }            
     #landing {flex-direction: row; gap: 10px;}
-    #landing-img div {
-        /* holds everything inside the link element: the screenshot, colored background, and text */
+    #hero-text-logo {margin: 85px 0;}
+    #logo {width: 300px;}
+    h1 {margin-top: 0; font-size: 2.8rem;}
+    h2 {font-size: 1.8rem;}
+    #hero-text p {
+        margin: 54px 0 0 0;
+        font-size: 1.2rem;
+    }
+    #landing-img div {    /* holds everything inside the link element: the screenshot, colored background, and text */
         width: 600px;
         height: 362px;
         margin: 0;
         transform: translateY(-150px);
     }
-    #landing-img div div {
-        /* this is the colored background behind the screenshot */
+    #landing-img div div {    /* this is the colored background behind the screenshot */
         width: 515px;
         height: 295px;
         margin: 0;
@@ -369,12 +345,15 @@ h2 {
     #landing-img img {width: 100%; height: auto;}
 }
 
+
 /* ************************************ */
 /*  *****   "Featured" section   *****  */
 /* ************************************ */
 
+
+/* First: mobile, in portrait */
+
 #featured {
-    /* height: 100vh; */
     width: 100vw;
     min-height: max-content;
     font-family: Arial;
@@ -383,61 +362,9 @@ h2 {
     gap: 1vh;
 }
 
-.featured {}
-
-.colorblock {}
-
-.clearstack-front {}
-
 .featured-circle {opacity: 0.1;}
+.triangle {height: 0; width: 0;}
 
-.triangle {
-    height: 0;
-    width: 0;
-}
-
-@media (any-hover: none) and (orientation: landscape) {
-    #featured {
-        grid-template-columns: 60vw 40vw;
-    }
-}
-
-@media (any-hover: hover) {
-    #featured {
-        padding-bottom: 30px;
-    }
-}
-
-@media (any-hover: hover) and (max-width: 799px){
-    #featured {
-        width: 500px;
-        margin: 0 auto;
-        grid-template-columns: 100%;
-        gap: 20px;
-    }
-}
-
-@media (any-hover: hover) and (min-width: 800px){
-    #featured {
-        width: 800px;
-        margin: 0 auto;
-        grid-template-columns: 60% 40%;
-        gap: 10px;
-    }
-
-}
-
-@media (any-hover: hover) and (min-width: 1000px){
-    #featured {
-        width: 1000px;
-        margin: 0 auto;
-        grid-template-columns: 60% 40%;
-        gap: 10px;
-    }
-}
-
-
-/* ~~~ Featured section: Youth-based marketing ~~~ */
 #f-marketing {
     display: grid;
     grid-auto-flow: column;
@@ -464,6 +391,7 @@ h2 {
     bottom: 10px;
     right: 0;
 }
+
 #f-marketing p {
     text-transform: uppercase;
     color: var(--blueMd);
@@ -471,6 +399,7 @@ h2 {
     margin: 0;
     margin-right: 2vw;
 }
+
 #f-marketing span:nth-child(1) {font-size: 1rem}
 
 #f-marketing div.in-triangle {
@@ -491,35 +420,8 @@ h2 {
     z-index: 0;
 }
 
-@media (any-hover: none) and (orientation: landscape) {
-    #f-marketing div.in-triangle {
-        border-left-width: 6vh;
-        border-top-width: 5vh;
-        border-bottom-width: 5vh;
-    }
-}
+#f-approach {position: relative;}
 
-
-@media (any-hover: hover) {
-    #f-marketing div.in-triangle {
-        border-left-width: 35px;
-        border-top-width: 30px;
-        border-bottom-width: 30px;
-        margin-right: 20px;
-        opacity: 0.4;
-    }
-    #f-marketing p {
-        font-size: 2rem;
-        margin-right: 20px;
-    }
-    
-}
-
-/* ~~~ Featured section: Our approach ~~~ */
-
-#f-approach {
-    position: relative;
-}
 #f-approach img {
     width: 100%;
     height: auto;
@@ -555,69 +457,6 @@ h2 {
     border-bottom: 5vw solid transparent;
 }
 
-@media (any-hover: none) and (orientation: landscape) {
-    #f-approach p {font-size: 4vh;}
-    #f-approach p span {font-size: 9vh;}
-    #f-approach div.in-triangle {
-        border-left-width: 5vh;
-        border-top-width: 4vh;
-        border-bottom-width: 4vh;
-    }
-}
-
-@media (any-hover: hover) {
-    #f-approach p {
-        text-align: right;
-        font-weight: normal;
-    }
-}
-
-@media (any-hover: hover) and (max-width: 799px){
-    #f-approach p {
-        font-size: 1.4rem;
-        padding-right: 8px;
-    }
-    #f-approach p span {
-        font-size: 3.6rem;
-    }    
-    #f-approach div.in-triangle {
-        border-left-width: 30px;
-        border-top-width: 25px;
-        border-bottom-width: 25px;
-    }    
-}
-
-@media (any-hover: hover) and (min-width: 800px){
-    #f-approach p {
-        font-size: 1rem;
-        padding-right: 4px;
-    }
-    #f-approach p span {
-        font-size: 2.25rem;
-    }    
-    #f-approach div.in-triangle {
-        border-left-width: 20px;
-        border-top-width: 15px;
-        border-bottom-width: 15px;
-    }    
-}
-
-@media (any-hover: hover) and (min-width: 1000px){
-    #f-approach p {
-        font-size: 1.2rem;
-    }
-    #f-approach p span {
-        font-size: 2.85rem;
-    }    
-    #f-approach div.in-triangle {
-        border-left-width: 25px;
-        border-top-width: 20px;
-        border-bottom-width: 20px;
-    }    
-}
-
-/* ~~~ Featured section: Portfolio ~~~ */
-
 #f-portfolio {
     display: flex; 
     margin-bottom: 0.5vh;
@@ -632,18 +471,18 @@ h2 {
 }
 
 #f-portfolio p {
-    display: inline;
     text-transform: uppercase;
     text-align: right;
     color: var(--aquaMd);
     font-size: 0.7rem;
+    display: inline;
     margin: 0;
+    padding-left: 0.5rem;
     position: absolute;     /* relative to div.colorblock */
     right: 1rem;
     top: 50%;
     transform: translateY(-50%);
     -webkit-transform: translateY(-50%);
-    padding-left: 0.5rem;
 }
 
 #f-portfolio span {font-size: 1.1rem;}
@@ -689,62 +528,6 @@ h2 {
 
 #f-portfolio circle.stroke {stroke: #000000; fill: none;}
 #f-portfolio circle.fill {fill: #000000; stroke: none;}
-
-@media (any-hover: none) and (orientation: landscape) {
-    #f-portfolio div.colorblock::after {
-        top: calc(50% - 2.5vw);
-        right: -2.4vw;
-        border-top: 2.5vw solid transparent;
-        border-bottom: 2.5vw solid transparent;
-        border-left: 2.5vw solid var(--blueMd);
-       
-    }
-}
-
-@media (any-hover: hover) and (max-width: 799px){
-    #f-portfolio p {
-        font-size: 1rem;
-    }    
-    #f-portfolio span {font-size: 1.5rem;}
-    #f-portfolio div.colorblock::after {
-        top: calc(50% - 20px);
-        right: -20px;
-        border-top: 20px solid transparent;
-        border-bottom: 20px solid transparent;
-        border-left: 20px solid var(--blueMd);
-    }
-}
-
-@media (any-hover: hover) and (min-width: 800px){
-    #f-portfolio p {
-        font-size: 0.9rem;
-    }    
-    #f-portfolio span {font-size: 1.4rem;}
-    #f-portfolio div.colorblock::after {
-        top: calc(50% - 20px);
-        right: -20px;
-        border-top: 20px solid transparent;
-        border-bottom: 20px solid transparent;
-        border-left: 20px solid var(--blueMd);
-    }
-}
-
-@media (any-hover: hover) and (min-width: 1000px){
-    #f-portfolio p {
-        font-size: 1.2rem;
-    }    
-    #f-portfolio span {font-size: 1.8rem;}
-    #f-portfolio div.colorblock::after {
-        top: calc(50% - 25px);
-        right: -25px;
-        border-top: 25px solid transparent;
-        border-bottom: 25px solid transparent;
-        border-left: 25px solid var(--blueMd);
-    }
-}
-
-
-/* ~~~ Featured section: action photos ~~~ */
 
 #f-photos {
     display: flex;
@@ -810,7 +593,30 @@ h2 {
 #f-photos circle.stroke {stroke: var(--blueDk); fill: none;}
 #f-photos circle.fill {fill: var(--blueDk); stroke: none;}
 
+
+/* Mobile, in landscape */
+
 @media (any-hover: none) and (orientation: landscape) {
+    #featured {grid-template-columns: 60vw 40vw;}
+    #f-marketing div.in-triangle {
+        border-left-width: 6vh;
+        border-top-width: 5vh;
+        border-bottom-width: 5vh;
+    }
+    #f-approach p {font-size: 4vh;}
+    #f-approach p span {font-size: 9vh;}
+    #f-approach div.in-triangle {
+        border-left-width: 5vh;
+        border-top-width: 4vh;
+        border-bottom-width: 4vh;
+    }
+    #f-portfolio div.colorblock::after {
+        top: calc(50% - 2.5vw);
+        right: -2.4vw;
+        border-top: 2.5vw solid transparent;
+        border-bottom: 2.5vw solid transparent;
+        border-left: 2.5vw solid var(--blueMd);       
+    }
     #f-photos div.colorblock::after {
         top: calc(50% - 3vw);
         right: -2.9vw;
@@ -820,7 +626,62 @@ h2 {
     } 
 }
 
+
+/* Desktop */
+
+
+    /* Desktop: any screen width */
+
+@media (any-hover: hover) {
+    #featured {
+        padding-bottom: 30px;
+        margin: 0 auto;
+    }
+    #f-marketing div.in-triangle {
+        border-left-width: 35px;
+        border-top-width: 30px;
+        border-bottom-width: 30px;
+        margin-right: 20px;
+        opacity: 0.4;
+    }
+    #f-marketing p {
+        font-size: 2rem;
+        margin-right: 20px;
+    }
+    #f-approach p {
+        text-align: right;
+        font-weight: normal;
+    }
+}
+
+
+    /* Desktop: screen width up to 800px */
+
 @media (any-hover: hover) and (max-width: 799px){
+    #featured {
+        width: 500px;
+        grid-template-columns: 100%;
+        gap: 20px;
+    }
+    #f-approach p {
+        font-size: 1.4rem;
+        padding-right: 8px;
+    }
+    #f-approach p span {font-size: 3.6rem;}    
+    #f-approach div.in-triangle {
+        border-left-width: 30px;
+        border-top-width: 25px;
+        border-bottom-width: 25px;
+    }    
+    #f-portfolio p {font-size: 1rem;}    
+    #f-portfolio span {font-size: 1.5rem;}
+    #f-portfolio div.colorblock::after {
+        top: calc(50% - 20px);
+        right: -20px;
+        border-top: 20px solid transparent;
+        border-bottom: 20px solid transparent;
+        border-left: 20px solid var(--blueMd);
+    }
     #f-photos p {font-size: 1.3rem;}
     #f-photos span {font-size: 2.6rem;}
     #f-photos div.colorblock::after {
@@ -832,7 +693,34 @@ h2 {
     }
 }
 
+
+    /* Desktop: screen width 800px to 1000px */
+
 @media (any-hover: hover) and (min-width: 800px){
+    #featured {
+        width: 800px;
+        grid-template-columns: 60% 40%;
+        gap: 10px;
+    }
+    #f-approach p {
+        font-size: 1rem;
+        padding-right: 4px;
+    }
+    #f-approach p span {font-size: 2.25rem;}    
+    #f-approach div.in-triangle {
+        border-left-width: 20px;
+        border-top-width: 15px;
+        border-bottom-width: 15px;
+    }    
+    #f-portfolio p {font-size: 0.9rem;}    
+    #f-portfolio span {font-size: 1.4rem;}
+    #f-portfolio div.colorblock::after {
+        top: calc(50% - 20px);
+        right: -20px;
+        border-top: 20px solid transparent;
+        border-bottom: 20px solid transparent;
+        border-left: 20px solid var(--blueMd);
+    }
     #f-photos p {font-size: 0.8rem;}
     #f-photos span {font-size: 1.7rem;}
     #f-photos div.colorblock::after {
@@ -844,7 +732,27 @@ h2 {
     }
 }
 
+
+/* Desktop: screen width over 1000px */
+
 @media (any-hover: hover) and (min-width: 1000px){
+    #featured {width: 1000px;}
+    #f-approach p {font-size: 1.2rem;}
+    #f-approach p span {font-size: 2.85rem;}    
+    #f-approach div.in-triangle {
+        border-left-width: 25px;
+        border-top-width: 20px;
+        border-bottom-width: 20px;
+    }    
+    #f-portfolio p {font-size: 1.2rem;}    
+    #f-portfolio span {font-size: 1.8rem;}
+    #f-portfolio div.colorblock::after {
+        top: calc(50% - 25px);
+        right: -25px;
+        border-top: 25px solid transparent;
+        border-bottom: 25px solid transparent;
+        border-left: 25px solid var(--blueMd);
+    }
     #f-photos p {font-size: 1rem;}
     #f-photos span {font-size: 2rem;}
     #f-photos div.colorblock::after {
@@ -860,6 +768,9 @@ h2 {
 /* ************************************ */
 /*  *****   "Services" section   *****  */
 /* ************************************ */
+
+
+/* First: mobile, in portrait */
 
 #services {
     background-color: #FFFFFF;
@@ -882,19 +793,17 @@ h2 {
     height: auto;
 }
 
-.services-text {}
-
 .services-text h3 {
     color: var(--blueMd);
     margin-left: 7vw;
     text-transform: uppercase;
 }
 
-.services-text p {
-    display: none;
-}
+.services-text p {display: none;}
 
-/* @media (any-hover: none) and (orientation: landscape), (any-hover: hover) { */
+
+/* Mobile, in landscape orientation */
+
 @media (any-hover: none) and (orientation: landscape) {
     #services {
         flex-direction: row;
@@ -926,6 +835,12 @@ h2 {
     }
 }
 
+
+/* Desktop */
+
+
+    /* Desktop: any screen width */
+
 @media (any-hover: hover) {
     .services-text h3 {
         font-size: 1rem;
@@ -938,30 +853,31 @@ h2 {
         font-size: 0.8rem;
         line-height: 1.2rem;
     }
+    .services-wrapper {
+        margin: 0;
+        align-items: center;
+    }
 }
 
 
+    /* Desktop: screen width up to 786px */
+
 @media (any-hover: hover) and (max-width: 785px){
-    #services {
-        align-items: center;
-    }
+    #services {align-items: center;}
     .services-wrapper {
-        margin: 0;
         width: 400px;
         padding: 10px 0;
-        align-items: center;
     }
     .services-wrapper img {
         width: 100px;
         height: 100px;
         padding: 20px;
     }
-    .services-text {
-        padding: 20px;
-    }
+    .services-text {padding: 20px;}
 }
 
 
+    /* Desktop: screen width over 786px */
 
 @media (any-hover: hover) and (min-width: 786px){
     #services {
@@ -970,10 +886,8 @@ h2 {
         justify-content: center;
     }
     .services-wrapper {
-        margin: 0;
         width: 162px;
         flex-direction: column;
-        align-items: center;
     }
     .services-wrapper img {
         width: 80px;
@@ -983,45 +897,19 @@ h2 {
 }
 
 
-
 /* ************************************************* */
 /*  *****   "Footer" links/contact  section   *****  */
 /* ************************************************* */
 
+
+/* First: mobile, in portrait */
+
 #links-contact {
     display: flex;
     flex-direction: column-reverse;
-    /* margin-top: 3vh; */
 }
 
-h4 {
-    text-transform: uppercase;
-}
-
-@media (any-hover: none) and (orientation: landscape) {
-    #links-contact {flex-direction: row;}
-    #links-contact > div {width: 50vw;}
-}
-
-@media (any-hover: hover) and (min-width: 650px) {
-    #links-contact {
-        flex-direction: row;
-    }
-    #links-contact > div {
-        width: 50vw;
-    }
-}
-
-@media (any-hover: hover) and (min-width: 1200px){
-
-}
-
-@media (any-hover: hover) and (max-width: 1199px){
-
-}
-
-
-/* ~~~  Links  ~~~~ */
+h4 {text-transform: uppercase;}
 
 #footer-links {
     background-color: var(--greenLt);
@@ -1033,9 +921,7 @@ h4 {
     justify-content: center;
 }
 
-#footer-links h4 {
-    color: var(--blueMd);
-}
+#footer-links h4 {color: var(--blueMd);}
 
 #footer-links p {
     color: var(--blueDk);
@@ -1044,54 +930,13 @@ h4 {
 
 #linksColB {display: none;}
 
-@media (any-hover: none) and (orientation: landscape) {
-    #footer-links {padding: 2% 2% 5% 0; gap: 10%;}
-    #footer-links h4 {font-size: 0.8rem;}
-    #footer-links p {
-        font-size: 1rem;
-        text-indent: 1rem;
-    }
-}
-
-@media (any-hover: hover) and (min-width: 650px) {
-    #footer-links {padding: 10px 0 0 0;}
-}
-
-@media (any-hover: hover) and (max-width: 999px) {
-    #footer-links {gap: calc(50% - 150px);}
-
-}
-
-@media (any-hover: hover) and (min-width: 1000px) {
-    #footer-links {gap: calc(33% - 150px);}
-    #linksColB {display: unset;}
-    #linksColA {display: none;}
-    
-}
-
-@media (any-hover: hover) and (max-width: 785px) {
-
-}
-
-@media (any-hover: hover) and (min-width: 1200px){
-
-}
-
-@media (any-hover: hover) and (max-width: 1199px){
-
-}
-
-/* ~~~  Contact  ~~~ */
-
 #footer-contact {
     background-color: var(--aquaMd);
     padding-bottom: 5%;
     color: var(--blueMd);
 }    
 
-#footer-contact form {
-    padding: 0 5%;
-}
+#footer-contact form {padding: 0 5%;}
 
 label {
     display: block;
@@ -1103,60 +948,75 @@ input {
     width: 98%;
 }
 
-input[type="textarea"] {
-    height: 8rem;
-}
+input[type="textarea"] {height: 8rem;}
+.asterisk {color: #D00000;}
 
-.asterisk {
-    color: #D00000;
-}
+
+/* Mobile, in landscape */
 
 @media (any-hover: none) and (orientation: landscape) {
-    #footer-contact {
-        padding: 0 2vw;
+    #links-contact {flex-direction: row;}
+    #links-contact > div {width: 50vw;}
+    #footer-links {padding: 2% 2% 5% 0; gap: 10%;}
+    #footer-links h4 {font-size: 0.8rem;}
+    #footer-links p {
+        font-size: 1rem;
+        text-indent: 1rem;
     }
-    #footer-contact h4 {
-        font-size: 0.8rem;
-    }
-    label {
-        font-size: 0.8rem;
-    }
+    #footer-contact {padding: 0 2vw;}
+    #footer-contact h4 {font-size: 0.8rem;}
+    label {font-size: 0.8rem;}
     .form-flex {
         display: flex;
         flex-direction: row;
         gap: 2vw;
     }
-    input[type="textarea"] {
-        height: 5rem;
-    }
+    input[type="textarea"] {height: 5rem;}
 }
+
+
+/* Desktop */
+
+
+    /* Desktop: screen widths between 650px and 1000px */
 
 @media (any-hover: hover) and (min-width: 650px) {
-    #footer-contact {
-        padding-bottom: 0;
-    }
+    #links-contact {flex-direction: row;}
+    #links-contact > div {width: 50vw;}
+    #footer-links {padding: 10px 0 0 0;}
+    #footer-contact {padding-bottom: 0;}
 }
 
+
+    /* Desktop: any screen width up to 1000px */
+
+@media (any-hover: hover) and (max-width: 999px) {
+    #footer-links {gap: calc(50% - 150px);}
+}
+
+
+    /* Desktop: screen widths above 1000px */
+
 @media (any-hover: hover) and (min-width: 1000px) {
+    #footer-links {gap: calc(33% - 150px);}
+    #linksColB {display: unset;}
+    #linksColA {display: none;}   
     .form-flex {
         display: flex;
         flex-direction: row;
         gap: 20px;
         width: 98%;
     }
-    .form-flex label {
-        width: 100%;
-    }
+    .form-flex label {width: 100%;}
 }
-
-@media (any-hover: hover) and (min-width: 1200px){}
-
-@media (any-hover: hover) and (max-width: 1199px){}
 
 
 /* ********************************** */
 /*  ********      Footer    ********  */
 /* ********************************** */
+
+
+/* First: mobile, in portrait */
 
 footer {
     background-image: url(assets/circle-bkgd-wide.svg);
@@ -1164,10 +1024,7 @@ footer {
     padding-top: 3vh;
 }
 
-footer p {
-    margin: 0;
-    /* font-size: 0.8rem; */
-}
+footer p {margin: 0;}
 
 footer > div:nth-child(1) {
     background-color: white;
@@ -1184,17 +1041,14 @@ footer > div:nth-child(1) {
     gap: 1rem;
 }
 
-footer > div:nth-child(1) > div:nth-child(3) img {
-    /* this targets the email icon */
+footer > div:nth-child(1) > div:nth-child(3) img {    /* this targets the email icon */
     height: 1.2rem;
     width: auto;
 }
 
-footer > div:nth-child(1) > div:nth-child(1) img {
-    /* this targets the social media icons */
+footer > div:nth-child(1) > div:nth-child(1) img {   /* this targets the social media icons */
     padding: 0.5rem;
     height: 1.8rem;
-
 }
 
 #email-phone {
@@ -1204,12 +1058,14 @@ footer > div:nth-child(1) > div:nth-child(1) img {
     gap: 1rem;
 }
 
-footer > div:nth-last-child(1) {
-    /* this targets the disclaimer section */
+footer > div:nth-last-child(1) {   /* this targets the disclaimer section */
     font-size: 0.8rem;
     text-align: center;
     padding: 1rem;
 }
+
+
+/* Mobile, in landscape */
 
 @media (any-hover: none) and (orientation: landscape) {
     footer > div:nth-child(1) {
@@ -1219,16 +1075,12 @@ footer > div:nth-last-child(1) {
     }
 }
 
+/* Desktop: only affects screen widths above 700px */
+
 @media (any-hover: hover) and (min-width: 700px) {
     footer > div:nth-child(1) {
         flex-direction: row;
         justify-content: space-evenly;
         gap: 1vw;
     }
-
 }
-
-
-@media (any-hover: hover) and (min-width: 1200px){}
-
-@media (any-hover: hover) and (max-width: 1199px){}
