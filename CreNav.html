@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="CreNav.css" />
+    <link rel="stylesheet" href="menu.css" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
@@ -14,7 +15,7 @@
             <p>OUR TEAM</p>
             <p>CAREERS</p>
             <p>CONTACT</p>
-            <p class="login">CLIENTS</p>
+            <p class="login navbar">CLIENTS</p>
         </navbar>
         <div id="hamburger"><img src="assets/hamburger.svg"></div>    <!-- hamburder menu -->
     </header>
@@ -192,7 +193,7 @@
             <div>
                 <p>Fort Collins + Vail, Colorado</p> 
             </div>
-            <div id="email-phone">
+            <div class="email-phone footer">
                 <img src="assets/email.svg">
                 <p>970-622-8044</p>
             </div>
@@ -205,6 +206,33 @@
         </div>
     </footer>
 
-    <script src="hover.js"></script>
+    <section id="menu">
+        <span id="closeMenu">&times;</span>
+        <h4>Home</h4>
+        <h4>Expertise</h4>
+        <p>About Us</p>
+        <p>Our Team</p>
+        <h4>Solutions</h4>
+        <h4>Portfolio</h4>
+        <p>Web Development</p>
+        <p>Identity Work</p>
+        <p>Print Materials</p>
+        <p>Email & Social Media</p>
+        <p>Apps & Technology</p>
+        <h4>Careers</h4>
+        <h4 class="login menu">Client Login</h4>
+        <div class="email-phone menu">
+            <!-- <img src="assets/email.svg"> -->
+            <svg width="15mm" height="11.4mm" viewBox="0 0 15 11.4" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+                <path style="stroke-width:1;stroke-linejoin:bevel;"
+                d="M 0.510771,0.4997955 H 14.483367 L 7.4368264,7.5461748 0.46560614,0.57506268 0.48099167,0.55967761 m 0.0188043,-0.0153852 H 14.500205 V 10.892205 H 0.49979604 Z" />
+            </svg>
+            <p>970-622-8044</p>
+        </div>
+
+    </section>
+
+    <script src="js/hover.js"></script>
+    <script src="js/menu.js"></script>
 </body>
 </html>
