@@ -1,11 +1,29 @@
 #menu {
     position: fixed;
-    top: 0;
-    left: 0;
     z-index: 4;
     background-color: var(--aquaMd);
     padding: 20px;
-    display: none;
+    right: -270px;
+}
+
+@keyframes dimFilter {
+    0% {filter: brightness(1);}
+    100% {filter: brightness(0.6);}
+}
+
+@keyframes dimBkgdColor {
+    0% {background-color: var(--aquaLt);}
+    100% {background-color: #6ecacf;}
+}
+
+@keyframes brightenFilter {
+    0% {filter: brightness(0.6);}
+    100% {filter: brightness(1);}
+}
+
+@keyframes brightenBkgdColor {
+    0% {background-color: #6ecacf;}
+    100% {background-color: var(--aquaLt);}
 }
 
 #menu span {
@@ -30,10 +48,6 @@
 #menu p {
     text-indent: 1rem;
     color: var(--blueDk);
-}
-
-#menu h4.login.menu {
-
 }
 
 #menu p:hover, #menu h4:hover, #menu span:hover {
@@ -78,7 +92,5 @@ Optional: make the "client login" a different color like in the navbar
 }
 
 .email-phone.menu p {
-    /* text-align: left; */
-    /* padding: 1rem 1rem 1rem 0; */
     padding: 1rem;
 }
