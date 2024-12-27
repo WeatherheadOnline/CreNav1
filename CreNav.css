@@ -2,11 +2,10 @@
     --blueDk: #07164d;
     --blueMd: #0031b3;
     --greenDk: #008800;
-    --greenLt: #3cf14b;
+    --greenLt: #6eef79;
     --aquaMd: #aefff5;
     --aquaLt: #e5fdff;
 }
-
 
 @media (any-hover: none) {
     :root {
@@ -79,14 +78,26 @@ navbar {display: none;}
     }
     navbar p:hover {background-color: var(--aquaLt);}
     navbar p.login {color: var(--blueMd);}
-    navbar p.login::before {/* put the padlock icon here */}
+
+
+    navbar p.login::before {
+        content: "";
+        display: inline-block;
+        background: url('assets/padlock.svg');
+        height: 0.7rem;
+        width: 0.7rem;
+        background-size: 0.65rem;
+        background-repeat: no-repeat;
+        margin-right: 0.3rem;
+    }
+
+
 }
 
 
 /* ******************************** */
 /*  *****   Landing screen   *****  */
 /* ******************************** */
-
 
 /* First: mobile, in portrait */
 
@@ -119,7 +130,10 @@ navbar {display: none;}
     margin: 7% auto;
 }
 
-#logo {width: 55vw; height: auto;}
+#logo {
+    width: 55vw; 
+    height: auto;
+}
 
 #hero-text {
     text-wrap: nowrap;
@@ -145,13 +159,13 @@ h2 {
     margin: 10vh 0 0 0;
 }
 
-#landing-img div {  /* holds everything inside the link element: the screenshot, colored background, and text */
+#landing-img > a > div {  /* holds everything inside the link element: the screenshot, colored background, and text */
     width: 95vw;
     margin: 0 2.5vw;
     position: relative;
 }
 
-#landing-img div div {  /* this is the colored background behind the screenshot */
+#landing-img > a > div > div {  /* this is the colored background behind the screenshot */
     background-color: var(--greenLt);
     width: 86%;
     height: 85%;
@@ -160,18 +174,21 @@ h2 {
     z-index: -1;
 }
 
-#landing-img img {width: 100%; height: auto;}
+#landing-img img {
+    width: 100%; 
+    height: auto;
+}
 
 #landing-img p {
     text-transform: uppercase;
     color: var(--blueMd);
     font-weight: bold;
-    text-decoration: none;
     font-size: 85%;
+    text-wrap: nowrap;
     margin: 0;
     position: absolute;
-    top: 0.5rem;
-    left: 1rem;
+    top: 3%;
+    right: 52%;
 }
 
 #landing-img p span {font-size: 1rem;}
@@ -188,7 +205,10 @@ h2 {
         transform: rotate(0) translateY(5vh);
     }
     #hero-text-logo {margin: 5vh 5vw;}
-    #hero-text {position: relative; top: 0;}
+    #hero-text {
+        position: relative; 
+        top: 0;
+    }
     #logo {
         position: absolute;
         top: 3vh;
@@ -199,38 +219,24 @@ h2 {
     h1 {font-size: 2rem;}
     h2 {font-size: 1.5rem;}
     #hero-text p {font-size: 1rem;}
-    #landing-img div {
+    #landing-img > a > div {
         width: 40vw;
         position: relative;
-        top: 50%;
-        transform: translateY(-33%);
+        top: 35%;
     }
-    #landing-img div div {top: 25%;}
 }
 
 
 /* Landing section: Desktop */
 
 
-    /* Desktop: screen width below 460px and below 600px */
-
-@media (any-hover: hover) and (max-width: 460px) {
-    #hero-text-logo {margin: 40px 0 0 20px;}
-    #landing-img div {margin-left: 20px;}   /* holds everything inside the link element: the screenshot, colored background, and text */
-}
-
-@media (any-hover: hover) and (max-width: 600px) {
-    #landing-img div {
-        width: 400px;
-        height: 200px;
-        margin-left: 50px;
-    }
-    #landing-img p {font-size: 0.9rem; left: 4rem;}
+@media (any-hover: hover) {
+    h1 {margin-top: 0;}
 }
 
 
     /* Desktop: screen width up to 786px */
-
+    
 @media (any-hover: hover) and (max-width: 785px) {
     #landing > div:nth-child(2) {
         width: 600px;
@@ -248,18 +254,40 @@ h2 {
     #hero-text-logo {margin: 40px 0 0 80px;}
     #logo {width: 230px;}
     #hero-text {padding-top: 15px;}
-    h1 {margin: 0; font-size: 2.1rem;}
+    h1 {font-size: 2.1rem;}
     h2 {font-size: 1.3rem;}
-    #hero-text p {font-size: 0.9rem; margin: 25px 0 0 0;}
-    #landing-img div {
+    #hero-text p {
+        font-size: 0.9rem; 
+        margin: 25px 0 0 0;
+    }
+    #landing-img > a > div {
         width: 550px;
         height: 200px;
         margin: 0 0 0 20px;
     }
-    #landing-img p {font-size: 1.1rem; left: 6.5rem;}
+    #landing-img > a > div > div {height: 275px;}
+    #landing-img p {font-size: 1.1rem;}
 }
 
 
+    /* Desktop: screen width below 460px and below 600px */
+
+    @media (any-hover: hover) and (max-width: 600px) {
+        #landing-img > a > div {
+            width: 400px;
+            height: 200px;
+            margin-left: 50px;
+        }
+        #landing-img p {font-size: 0.9rem;}
+        #landing-img > a > div > div {height: 200px;}
+    }
+
+    @media (any-hover: hover) and (max-width: 460px) {
+        #hero-text-logo {margin: 40px 0 0 20px;}       
+        #landing-img > a > div {margin-left: 20px;}   /* holds everything inside the link element: the screenshot, colored background, and text */
+    }
+    
+    
     /* Desktop: screen width between 786px and 1200px */
 
 @media (any-hover: hover) and (min-width: 786px) and (max-width: 1199px){
@@ -278,32 +306,32 @@ h2 {
     #hero-text-logo {margin: 65px 0;}
     #logo {width: 200px;}
     #hero-text {padding-top: 35px;}
-    h1 {margin-top: 0; font-size: 2rem;}
+    h1 {font-size: 2rem;}
     h2 {font-size: 1.3rem;}
     #hero-text p {
         margin: 54px 0 0 0;
         font-size: 0.9rem;
     }
-    #landing-img div {   /* holds everything inside the link element: the screenshot, colored background, and text */
+    #landing-img > a > div {   /* holds everything inside the link element: the screenshot, colored background, and text */
         width: 425px;
         height: 362px;
         margin: 0;
-        transform: translateY(-55px);
+        top: 145px;
     }
-    #landing-img div div {  /* this is the colored background behind the screenshot */
+    #landing-img > a > div > div {  /* this is the colored background behind the screenshot */
         width: 345px;
-        height: 200px;
-        margin: 0;
-        position: relative;
-        transform: translateY(220px) translateX(30px);
+        height: 215px;
     }
-    #landing-img p {left: 5rem;}
 }
 
 
     /* Desktop: screen width over 1200px */
 
 @media (any-hover: hover) and (min-width: 1200px){
+    #landing {
+        flex-direction: row; 
+        gap: 10px;
+    }
     #landing-bkgd-container {
         background-image: url(assets/circle-bkgd-wide.svg);
         background-size: auto 60vh;
@@ -318,31 +346,33 @@ h2 {
         gap: 75px; 
         justify-content: center;
     }            
-    #landing {flex-direction: row; gap: 10px;}
     #hero-text-logo {margin: 85px 0;}
     #logo {width: 300px;}
-    h1 {margin-top: 0; font-size: 2.8rem;}
+    h1 {font-size: 2.8rem;}
     h2 {font-size: 1.8rem;}
     #hero-text p {
         margin: 54px 0 0 0;
         font-size: 1.2rem;
     }
-    #landing-img div {    /* holds everything inside the link element: the screenshot, colored background, and text */
+    #landing-img > a > div {    /* holds everything inside the link element: the screenshot, colored background, and text */
         width: 600px;
         height: 362px;
         margin: 0;
         transform: translateY(-150px);
     }
-    #landing-img div div {    /* this is the colored background behind the screenshot */
+    #landing-img > a > div > div {    /* this is the colored background behind the screenshot */
         width: 515px;
         height: 295px;
         margin: 0;
         position: relative;
         transform: translateY(330px) translateX(50px);
     }
-    #landing-img p {font-size: 1.2rem; left: 6.5rem;}
+    #landing-img p {font-size: 1.2rem;}
     #landing-img p span {font-size: 1.5rem;}
-    #landing-img img {width: 100%; height: auto;}
+    #landing-img img {
+        width: 100%; 
+        height: auto;
+    }
 }
 
 
