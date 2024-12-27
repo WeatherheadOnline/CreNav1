@@ -37,23 +37,34 @@ body {
 
 navbar {display: none;}
 
-#hamburger img {
-    filter: drop-shadow(0 0 1px #000000);
-    width: 5wv;
-    height: auto;
+#menu-wrapper {
     position: fixed;
     top: 3vw;
     right: 3vw;
     z-index: 3;
 }
 
+#hamburger img {
+    filter: drop-shadow(0 0 1px #000000);
+    width: 5wv;
+    height: auto;
+}
+
 /* Mobile, in landscape */
 @media (any-hover: none) and (orientation: landscape) {
+    #menu-wrapper {
+        top: 8.5vh;
+        right: 10vh;        
+    }
     #hamburger img {
         height: 7vh;
         width: auto;
-        top: 8.5vh;
-        right: 10vh;
+    }
+    #menu p {
+        display: none;
+    }
+    #menu div.email-phone.menu p {
+        display: block;
     }
 }
 
