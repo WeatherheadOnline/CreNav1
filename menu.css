@@ -5,6 +5,7 @@
     z-index: 4;
     background-color: var(--aquaMd);
     padding: 20px;
+    display: none;
 }
 
 #menu span {
@@ -16,16 +17,6 @@
     margin: 3px;
     padding: 4px 8px;
 }
-
-/* #menu img {
-    height: 10px;
-    width: auto;
-} */
-
-/* #menu img:hover {
-    background-color: var(--blueDk);
-    filter: invert(100%);
-} */
 
 #menu h4, #menu p {
     margin: 0;
@@ -52,10 +43,11 @@
     font-weight: bold;
 }
 
-/* #menu h4.login.menu {
+/* 
+Optional: make the "client login" a different color like in the navbar
+#menu h4.login.menu {
     color: var(--greenDk);
 }
-
 #menu h4.login.menu:hover {
     color: var(--greenLt);
     background-color: var(--greenDk);
