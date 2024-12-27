@@ -101,7 +101,7 @@ navbar {display: none;}
 
 /* First: mobile, in portrait */
 
-#landing {height: 100vh;min-height: max-content;}
+#landing {height: max(100vh, fit-content);}
 
 #landing-bkgd-container {
     background-image: url(assets/circle-bkgd-narrow.svg);
@@ -446,7 +446,7 @@ h2 {
     position: absolute;
     top: 5%;
     left: 24%;
-    stroke: var(--blueDk);
+    stroke: var(--blueMd);
     z-index: 0;
 }
 
@@ -485,7 +485,13 @@ h2 {
     border-left: 6vw solid var(--aquaLt);
     border-top: 5vw solid transparent;
     border-bottom: 5vw solid transparent;
+    opacity: 0.5;
 }
+
+
+
+
+
 
 #f-portfolio {
     display: flex; 
@@ -496,8 +502,10 @@ h2 {
 #f-portfolio div.colorblock {
     width: 33%;
     background-color: var(--blueMd);
-    height: 100%;
+    height: 33vw;
     position: relative;
+    top: 0;
+    left: 0;
 }
 
 #f-portfolio p {
@@ -567,7 +575,7 @@ h2 {
 #f-photos div.colorblock {
     width: 50%;
     background-color: var(--greenDk);
-    height: 100%;
+    height: 50vw;
     position: relative;
 }
 
@@ -640,6 +648,7 @@ h2 {
         border-top-width: 4vh;
         border-bottom-width: 4vh;
     }
+    #f-portfolio div.colorblock {height: 19.8vw};
     #f-portfolio div.colorblock::after {
         top: calc(50% - 2.5vw);
         right: -2.4vw;
@@ -647,6 +656,7 @@ h2 {
         border-bottom: 2.5vw solid transparent;
         border-left: 2.5vw solid var(--blueMd);       
     }
+    #f-photos div.colorblock {height: 20vw;}
     #f-photos div.colorblock::after {
         top: calc(50% - 3vw);
         right: -2.9vw;
@@ -705,6 +715,7 @@ h2 {
     }    
     #f-portfolio p {font-size: 1rem;}    
     #f-portfolio span {font-size: 1.5rem;}
+    #f-portfolio div.colorblock {height: 167px;}
     #f-portfolio div.colorblock::after {
         top: calc(50% - 20px);
         right: -20px;
@@ -714,6 +725,7 @@ h2 {
     }
     #f-photos p {font-size: 1.3rem;}
     #f-photos span {font-size: 2.6rem;}
+    #f-photos div.colorblock {height: 253px;}
     #f-photos div.colorblock::after {
         top: calc(50% - 38px);
         right: -38px;
@@ -744,6 +756,7 @@ h2 {
     }    
     #f-portfolio p {font-size: 0.9rem;}    
     #f-portfolio span {font-size: 1.4rem;}
+    #f-portfolio div.colorblock {height: 160px;}
     #f-portfolio div.colorblock::after {
         top: calc(50% - 20px);
         right: -20px;
@@ -753,6 +766,7 @@ h2 {
     }
     #f-photos p {font-size: 0.8rem;}
     #f-photos span {font-size: 1.7rem;}
+    #f-photos div.colorblock {height: 162px;}
     #f-photos div.colorblock::after {
         top: calc(50% - 25px);
         right: -25px;
@@ -776,6 +790,7 @@ h2 {
     }    
     #f-portfolio p {font-size: 1.2rem;}    
     #f-portfolio span {font-size: 1.8rem;}
+    #f-portfolio div.colorblock {height: 200px;}
     #f-portfolio div.colorblock::after {
         top: calc(50% - 25px);
         right: -25px;
@@ -785,6 +800,7 @@ h2 {
     }
     #f-photos p {font-size: 1rem;}
     #f-photos span {font-size: 2rem;}
+    #f-photos div.colorblock {height: 202px;}
     #f-photos div.colorblock::after {
         top: calc(50% - 28px);
         right: -28px;
