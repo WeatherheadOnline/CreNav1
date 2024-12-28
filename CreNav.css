@@ -24,8 +24,10 @@ html, body {
 
 body {
     background-color: var(--aquaLt);
-    font-family: Helvetica, Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
+
+a {text-decoration: none;}
 
 
 /* **************************************** */
@@ -37,42 +39,102 @@ body {
 
 navbar {display: none;}
 
-#menu-wrapper {
-    position: fixed;
-    top: 3vw;
-    right: 3vw;
-    z-index: 3;
-}
-
 #hamburger img {
     filter: drop-shadow(0 0 1px #000000);
     width: 5wv;
     height: auto;
 }
 
+#menu-wrapper {
+    position: fixed;
+    top: 3vw;
+    right: 3vw;
+    z-index: 4;
+}    
+
+#menu {
+    position: fixed;
+    z-index: 5;
+    background-color: var(--aquaMd);
+    padding: 20px;
+    right: -270px;
+}    
+
+#menu span {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    font-size: 1.5rem;
+    color: var(--blueMd);
+    margin: 3px;
+    padding: 4px 8px;
+}
+
+#menu h4, #menu p {
+    margin: 0;
+    padding: 0.5rem;
+}
+
+#menu h4 {color: var(--blueMd);}
+
+#menu p {
+    text-indent: 1rem;
+    color: var(--blueDk);
+}
+
+#menu p:hover, #menu h4:hover, #menu span:hover {    /* use specific selectors so the email-phone div doesn't respond  */
+    color: var(--aquaMd);
+    background-color: var(--blueDk);
+    font-weight: bold;
+}
+
+#menu svg {
+    fill: none;
+    stroke: var(--blueDk);
+    padding: 1rem;   
+    transform: scale(0.5);
+}
+
+#menu svg:hover {
+    background-color: var(--blueDk);
+    stroke: var(--aquaMd);
+}
+
+.email-phone.menu {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+    height: 3rem;
+    width: max-content;
+}
+
+.email-phone.menu p {padding: 1rem;}
+
+
 /* Mobile, in landscape */
+
 @media (any-hover: none) and (orientation: landscape) {
     #menu-wrapper {
-        top: 8.5vh;
-        right: 10vh;        
+        top: 4.5vh;
+        right: 6vh;        
     }
     #hamburger img {
         height: 7vh;
         width: auto;
     }
-    #menu p {
-        display: none;
-    }
-    #menu div.email-phone.menu p {
-        display: block;
-    }
+    #menu p {display: none;}
+    #menu div.email-phone.menu p {display: block;}
 }
 
 /* Desktop, screen is at least 683px wide, eg. 1366px-wide screen, with window at half width */
+
 @media (any-hover: hover) and (min-width: 683px) {
     #hamburger {display: none;}
     navbar {
-        color: var(--greenDk);
         background-color: var(--aquaMd);
         font-size: 0.7rem;
         position: fixed;
@@ -81,16 +143,17 @@ navbar {display: none;}
         display: flex;
         flex-wrap: nowrap;
         justify-content: space-around;
+        z-index: 4;
     }
     navbar p {
+        color: var(--greenDk);
+        text-transform: uppercase;
         margin: 0 0.5rem;
         padding: 0.5rem;
         text-wrap: nowrap;
     }
     navbar p:hover {background-color: var(--aquaLt);}
     navbar p.login.navbar {color: var(--blueMd);}
-
-
     navbar p.login::before {
         content: "";
         display: inline-block;
@@ -101,14 +164,13 @@ navbar {display: none;}
         background-repeat: no-repeat;
         margin-right: 0.3rem;
     }
-
-
 }
 
 
 /* ******************************** */
 /*  *****   Landing screen   *****  */
 /* ******************************** */
+
 
 /* First: mobile, in portrait */
 
@@ -127,7 +189,7 @@ navbar {display: none;}
     width: 90vh;
     height: 100vw;
     position: absolute;
-    top: 10vh;
+    top: 8.6vh;
     left: 0;
     z-index: -1;
 }
@@ -206,7 +268,6 @@ h2 {
 }
 
 #landing-img p span {font-size: 1rem;}
-#landing-img a {text-decoration: none;}
 
 
 /* Landing section: Mobile, in landscape */
@@ -217,6 +278,7 @@ h2 {
         width: 100vw;
         height: 80vh;
         transform: rotate(0) translateY(5vh);
+        /* transform: rotate(0); */
     }
     #hero-text-logo {margin: 5vh 5vw;}
     #hero-text {
@@ -242,7 +304,6 @@ h2 {
 
 
 /* Landing section: Desktop */
-
 
 @media (any-hover: hover) {
     h1 {margin-top: 0;}
@@ -290,7 +351,10 @@ h2 {
         #landing-img > a > div {
             width: 400px;
             height: 200px;
-            margin-left: 50px;
+            margin: 37px 0 0 50px;
+
+            /* margin-left: 50px;
+            margin-top: 37px; */
         }
         #landing-img p {font-size: 0.9rem;}
         #landing-img > a > div > div {height: 200px;}
@@ -305,6 +369,10 @@ h2 {
     /* Desktop: screen width between 786px and 1200px */
 
 @media (any-hover: hover) and (min-width: 786px) and (max-width: 1199px){
+    #landing {
+        height: min-content; 
+        margin-bottom: 30px;
+    }
     #landing-bkgd-container {
         background-image: url(assets/circle-bkgd-wide.svg);
         background-size: auto 60vh;
@@ -343,6 +411,8 @@ h2 {
 
 @media (any-hover: hover) and (min-width: 1200px){
     #landing {
+        height: min-content; 
+        margin-bottom: 15px;
         flex-direction: row; 
         gap: 10px;
     }
@@ -400,7 +470,6 @@ h2 {
 #featured {
     width: 100vw;
     min-height: max-content;
-    font-family: Arial;
     display: grid;
     grid-template-columns: 100vw;
     gap: 1vh;
@@ -449,12 +518,12 @@ h2 {
 #f-marketing p {
     text-transform: uppercase;
     color: var(--blueMd);
-    font-size: 1.5rem;
+    font-size: 1.23rem;
     margin: 0;
     margin-right: 2vw;
 }
 
-#f-marketing span:nth-child(1) {font-size: 1rem}
+#f-marketing p span {font-size: 1.5rem}
 
 #f-marketing div.in-triangle {
     border-left: 6vw solid var(--blueMd);
@@ -474,7 +543,7 @@ h2 {
     z-index: 0;
 }
 
-#f-marketing:hover .colorblock .clearstack p {text-shadow: 2px 2px 3px var(--aquaLt);}
+#f-marketing:hover .colorblock .clearstack p {text-shadow: 3px 3px 3px var(--blueDk);}
 #f-marketing:hover .colorblock .clearstack .in-triangle {opacity: 0.8;}
 #f-marketing:hover .colorblock .featured-circle {opacity: 0.18;}
 #f-marketing:hover img {filter: brightness(150%) contrast(75%);}
@@ -490,9 +559,9 @@ h2 {
     position: absolute;
     top: 0;
     right: 0.5rem;
-    z-index: 2;
     display: flex;
     align-items: center;
+    z-index: 2;
 }
 
 #f-approach p {
@@ -518,7 +587,7 @@ h2 {
 }
 
 #f-approach:hover img {filter: brightness(150%) contrast(75%);}
-#f-approach:hover .clearstack p span {text-shadow: 2px 2px 5px var(--blueDk);}
+#f-approach:hover .clearstack p span {text-shadow: 3px 3px 4px var(--blueDk);}
 #f-approach:hover .clearstack .in-triangle {opacity: 1;}
 
 #f-portfolio {
@@ -595,8 +664,8 @@ h2 {
 #f-portfolio circle.stroke {stroke: #000000; fill: none;}
 #f-portfolio circle.fill {fill: #000000; stroke: none;}
 
-#f-portfolio:hover .colorblock .clearstack p {text-shadow: 2px 2px 5px var(--aquaMd);}
-#f-portfolio:hover .colorblock .clearstack svg {opacity: 0.3;}
+#f-portfolio:hover .colorblock .clearstack p {text-shadow: 4px 4px 4px #000000;}
+#f-portfolio:hover .colorblock .clearstack svg {opacity: 0.2;}
 #f-portfolio:hover img {filter: contrast(50%) brightness(150%);}
 
 #f-photos {
@@ -663,8 +732,8 @@ h2 {
 #f-photos circle.stroke {stroke: var(--blueDk); fill: none;}
 #f-photos circle.fill {fill: var(--blueDk); stroke: none;}
 
-#f-photos:hover .colorblock .clearstack p {text-shadow: 2px 2px 5px var(--aquaMd);}
-#f-photos:hover .colorblock .clearstack svg {opacity: 0.3;}
+#f-photos:hover .colorblock .clearstack p {text-shadow: 3px 3px 4px #000000;}
+#f-photos:hover .colorblock .clearstack svg {opacity: 0.2;}
 #f-photos:hover img {filter: contrast(50%) brightness(150%);}
 
 
@@ -705,7 +774,6 @@ h2 {
 
 /* Desktop */
 
-
     /* Desktop: any screen width */
 
 @media (any-hover: hover) {
@@ -720,10 +788,16 @@ h2 {
         margin-right: 20px;
         opacity: 0.4;
     }
+
     #f-marketing p {
+        font-size: 1.64rem;
+        margin-right: 20px;
+    }
+    #f-marketing p span {
         font-size: 2rem;
         margin-right: 20px;
     }
+    
     #f-approach p {
         text-align: right;
         font-weight: normal;
@@ -772,7 +846,7 @@ h2 {
 }
 
 
-    /* Desktop: screen width 800px to 1000px */
+    /* Desktop: screen width 800px to 1200px */
 
 @media (any-hover: hover) and (min-width: 800px){
     #featured {
@@ -813,9 +887,9 @@ h2 {
 }
 
 
-/* Desktop: screen width over 1000px */
+/* Desktop: screen width over 1200px */
 
-@media (any-hover: hover) and (min-width: 1000px){
+@media (any-hover: hover) and (min-width: 1200px){
     #featured {width: 1000px;}
     #f-approach p {font-size: 1.2rem;}
     #f-approach p span {font-size: 2.85rem;}    
@@ -881,7 +955,10 @@ h2 {
     text-transform: uppercase;
 }
 
-.services-text p {display: none;}
+.services-text p {
+    display: none;
+    color: var(--blueDk);    
+}
 
 
 /* Mobile, in landscape orientation */
@@ -919,7 +996,6 @@ h2 {
 
 
 /* Desktop */
-
 
     /* Desktop: any screen width */
 
@@ -991,7 +1067,7 @@ h2 {
     flex-direction: column-reverse;
 }
 
-h4 {text-transform: uppercase;}
+#links-contact h4 {text-transform: uppercase;}
 
 #footer-links {
     background-color: var(--greenLt);
@@ -1058,7 +1134,6 @@ input[type="textarea"] {height: 8rem;}
 
 
 /* Desktop */
-
 
     /* Desktop: screen widths between 650px and 1000px */
 
@@ -1140,6 +1215,8 @@ footer > div:nth-child(1) > div:nth-child(1) img {   /* this targets the social 
     gap: 1rem;
 }
 
+.email-phone.footer a {color: var(--greenDk);}
+
 footer > div:nth-last-child(1) {   /* this targets the disclaimer section */
     font-size: 0.8rem;
     text-align: center;
@@ -1156,6 +1233,7 @@ footer > div:nth-last-child(1) {   /* this targets the disclaimer section */
         gap: 1vw;
     }
 }
+
 
 /* Desktop: only affects screen widths above 700px */
 
