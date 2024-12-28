@@ -1,0 +1,19 @@
+@keyframes dimFilter {
+    0% {filter: brightness(1);}
+    100% {filter: brightness(0.6);}
+}
+
+@keyframes dimBkgdColor {
+    0% {background-color: var(--aquaLt);}
+    100% {background-color: #6ecacf;}
+}
+
+@keyframes brightenFilter {
+    0% {filter: brightness(0.6);}
+    100% {filter: brightness(1);}
+}
+
+@keyframes brightenBkgdColor {
+    0% {background-color: #6ecacf;}
+    100% {background-color: var(--aquaLt);}
+}

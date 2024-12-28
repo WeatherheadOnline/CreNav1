@@ -157,7 +157,7 @@ navbar {display: none;}
     navbar p.login::before {
         content: "";
         display: inline-block;
-        background: url('assets/padlock.svg');
+        background: url('../assets/padlock.svg');
         height: 0.7rem;
         width: 0.7rem;
         background-size: 0.65rem;
@@ -180,7 +180,7 @@ navbar {display: none;}
 }
 
 #landing-bkgd-container {
-    background-image: url(assets/circle-bkgd-narrow.svg);
+    background-image: url(../assets/circle-bkgd-narrow.svg);
     background-repeat: no-repeat;
     background-size: cover;
     transform-origin: 50vw 50vw;
@@ -320,7 +320,7 @@ h2 {
         margin: 0 auto;
     }
     #landing-bkgd-container {
-        background-image: url(assets/circle-bkgd-wide.svg);
+        background-image: url(../assets/circle-bkgd-wide.svg);
         background-size: contain;
         transform: rotate(0deg);
         width: 1200px;
@@ -364,6 +364,13 @@ h2 {
         #hero-text-logo {margin: 40px 0 0 20px;}       
         #landing-img > a > div {margin-left: 20px;}   /* holds everything inside the link element: the screenshot, colored background, and text */
     }
+
+
+    /* Desktop: screen width up to 1200px */ 
+
+    @media (any-hover: hover) and (max-width: 1199px) {
+        #landing-img p {top: 5%;}
+    }
     
     
     /* Desktop: screen width between 786px and 1200px */
@@ -374,7 +381,7 @@ h2 {
         margin-bottom: 30px;
     }
     #landing-bkgd-container {
-        background-image: url(assets/circle-bkgd-wide.svg);
+        background-image: url(../assets/circle-bkgd-wide.svg);
         background-size: auto 60vh;
         transform: rotate(0deg);
         width: 1200px;
@@ -417,7 +424,7 @@ h2 {
         gap: 10px;
     }
     #landing-bkgd-container {
-        background-image: url(assets/circle-bkgd-wide.svg);
+        background-image: url(../assets/circle-bkgd-wide.svg);
         background-size: auto 60vh;
         background-position: center top;
         transform: rotate(0deg);
@@ -1176,7 +1183,7 @@ input[type="textarea"] {height: 8rem;}
 /* First: mobile, in portrait */
 
 footer {
-    background-image: url(assets/circle-bkgd-wide.svg);
+    background-image: url(../assets/circle-bkgd-wide.svg);
     background-size: cover;
     padding-top: 3vh;
 }
