@@ -112,7 +112,10 @@ navbar {display: none;}
 
 /* First: mobile, in portrait */
 
-#landing {height: max(100vh, fit-content);}
+#landing {
+    height: 100vh;
+    min-height: max-content;
+}
 
 #landing-bkgd-container {
     background-image: url(assets/circle-bkgd-narrow.svg);
@@ -413,9 +416,19 @@ h2 {
     grid-template-rows: auto auto;
 }
 
+#f-marketing > div {position: relative;}
+
 #f-marketing img {
     width: 100%;
     height: auto;
+    transition: opacity 0.3s linear;
+}
+
+#f-marketing .img-layer-2, #f-marketing .img-layer-3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
 }
 
 #f-marketing div.colorblock {
@@ -424,7 +437,7 @@ h2 {
     overflow: hidden;
 }
 
-#f-marketing div.colorblock div.clearstack-front {
+#f-marketing div.colorblock div.clearstack {
     display: grid;
     grid-template-columns: auto auto;
     align-items: center;
@@ -461,6 +474,11 @@ h2 {
     z-index: 0;
 }
 
+#f-marketing:hover .colorblock .clearstack p {text-shadow: 2px 2px 3px var(--aquaLt);}
+#f-marketing:hover .colorblock .clearstack .in-triangle {opacity: 0.8;}
+#f-marketing:hover .colorblock .featured-circle {opacity: 0.18;}
+#f-marketing:hover img {filter: brightness(150%) contrast(75%);}
+
 #f-approach {position: relative;}
 
 #f-approach img {
@@ -468,7 +486,7 @@ h2 {
     height: auto;
 }
 
-#f-approach div.clearstack-front {
+#f-approach div.clearstack {
     position: absolute;
     top: 0;
     right: 0.5rem;
@@ -499,10 +517,9 @@ h2 {
     opacity: 0.5;
 }
 
-
-
-
-
+#f-approach:hover img {filter: brightness(150%) contrast(75%);}
+#f-approach:hover .clearstack p span {text-shadow: 2px 2px 5px var(--blueDk);}
+#f-approach:hover .clearstack .in-triangle {opacity: 1;}
 
 #f-portfolio {
     display: flex; 
@@ -541,14 +558,14 @@ h2 {
     height: auto;
 }
 
-#f-portfolio div.clearstack-front {
+#f-portfolio div.clearstack {
     width: 100%;
     height: 100%;
     position: relative;
     overflow: hidden;   
 }
 
-#f-portfolio > div.colorblock > div.clearstack-front > div {
+#f-portfolio > div.colorblock > div.clearstack > div {
     width: 100%;
     height: 100%;
     overflow: hidden;   
@@ -577,6 +594,10 @@ h2 {
 
 #f-portfolio circle.stroke {stroke: #000000; fill: none;}
 #f-portfolio circle.fill {fill: #000000; stroke: none;}
+
+#f-portfolio:hover .colorblock .clearstack p {text-shadow: 2px 2px 5px var(--aquaMd);}
+#f-portfolio:hover .colorblock .clearstack svg {opacity: 0.3;}
+#f-portfolio:hover img {filter: contrast(50%) brightness(150%);}
 
 #f-photos {
     display: flex;
@@ -611,7 +632,7 @@ h2 {
     height: auto;
 }
 
-#f-photos div.colorblock div.clearstack-front {
+#f-photos div.colorblock div.clearstack {
     width: 100%;
     height: 100%;
     overflow: hidden;   
@@ -641,6 +662,10 @@ h2 {
 
 #f-photos circle.stroke {stroke: var(--blueDk); fill: none;}
 #f-photos circle.fill {fill: var(--blueDk); stroke: none;}
+
+#f-photos:hover .colorblock .clearstack p {text-shadow: 2px 2px 5px var(--aquaMd);}
+#f-photos:hover .colorblock .clearstack svg {opacity: 0.3;}
+#f-photos:hover img {filter: contrast(50%) brightness(150%);}
 
 
 /* Mobile, in landscape */
