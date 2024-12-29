@@ -241,7 +241,7 @@
                         <label for="phone">Phone<input type="text" id="phone" name="phone"></label>
                         <label for="subject">Subject<span class="asterisk">*</span><input type="text" id="subject" name="subject" required></label>
                     </div>                    
-                    <label for="message">Message<span class="asterisk">*</span><textarea id="message" name="message" rows="6" cols="30" wrap="hard" required></textarea></label>
+                    <label for="message">Message<span class="asterisk">*</span><textarea id="message" name="message" rows="6" cols="30" required></textarea></label>
                     <div id="button-wrapper">
                         <button id="clear-form">CLEAR</button>
                         <button id="submit" type="submit">SEND</button>
