@@ -223,17 +223,29 @@
                 </div>
             </div>
             <div id="footer-contact">
-                <form>
+                <form method="POST" id="footer-contact-form" action="#footer-contact-form">
+                    
+                    <?php  if (isset ($_POST['subject']) ) {echo "
+                        <div id='message-sent'>
+                            <span>&times;</span>
+                            <p>Your message was sent. Thanks!</p>
+                        </div>
+                    ";} ?>
+                    
                     <h4>Contact</h4>
                     <div class="form-flex">
-                        <label for="name">Name<span class="asterisk">*</span><input type="text" id="name" name="name"></label>
-                        <label for="email">Email<span class="asterisk">*</span><input type="email" id="email" name="email"></label>
+                        <label for="name">Name<span class="asterisk">*</span><input type="text" id="name" name="name" required></label>
+                        <label for="email">Email<span class="asterisk">*</span><input type="email" id="email" name="email" required></label>
                     </div>
                     <div class="form-flex">
                         <label for="phone">Phone<input type="text" id="phone" name="phone"></label>
-                        <label for="subject">Subject<span class="asterisk">*</span><input type="text" id="subject" name="subject"></label>
+                        <label for="subject">Subject<span class="asterisk">*</span><input type="text" id="subject" name="subject" required></label>
                     </div>                    
-                    <label for="message">Message<span class="asterisk">*</span><input type="textarea" id="message" name="message"></label>
+                    <label for="message">Message<span class="asterisk">*</span><textarea id="message" name="message" rows="6" cols="30" wrap="hard" required></textarea></label>
+                    <div id="button-wrapper">
+                        <button id="clear-form">CLEAR</button>
+                        <button id="submit" type="submit">SEND</button>
+                    </div>
                 </form>
             </div>
         </section>
@@ -274,7 +286,50 @@
             <p>This website is for display purposes only.</p>
         </div>
     </footer>
+    
+    <?php 
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+          $name = dataFilter($_POST["name"]);
+          $email = dataFilter($_POST["email"]);
+          $subject = dataFilter($_POST["subject"]);
+          $message = dataFilter($_POST["message"]);
+        }
+
+        $phoneEntered = false;
+        if ($_POST["phone"] !== "") {
+            $phone = dataFilter($_POST["phone"]);
+            $phoneEntered = true;
+            $phoneString = substr($phone, 0, 3) . '-' . substr($phone, 3, 3) . "-" . substr($phone, 7);
+        }
+        
+        function dataFilter($data) {
+          $data = trim($data);
+          $data = stripslashes($data);
+          $data = htmlspecialchars($data);
+          return $data;
+        }
+
+        $message = nl2br($message);
+
+        $message = $message . '<br><br><em>Received from ' . $name . '</em>';
+        if ($phoneEntered === true) {
+            $message = $message . "<br><em>Phone: <a href='tel:" . $phone . "'>" . $phoneString . "</a></em>";
+        };
+        
+        $headers = 'From: ' . $name . ' <' . $email . '>' . "\r\n" . 
+            'Reply-to: ' . $email . "\r\n" . 
+            'Content-type: text/html';
+
+        $to = 'CreativeNavigation@WeatherheadOnline.com';
+
+        if (isset($_POST['email'])) {
+            mail($to, $subject, $message, $headers);
+        }
+    ?>
+
+    <script src="js/message-sent.js"></script>
     <script src="js/menu.js"></script>
     <script src="js/slideshow.js"></script>
+    
 </body>
 </html>

@@ -1074,7 +1074,10 @@ h2 {
     flex-direction: column-reverse;
 }
 
-#links-contact h4 {text-transform: uppercase;}
+#links-contact h4 {
+    text-transform: uppercase;
+    font-size: 1.2rem;
+}
 
 #footer-links {
     background-color: var(--greenLt);
@@ -1091,6 +1094,7 @@ h2 {
 #footer-links p {
     color: var(--blueDk);
     text-indent: 1rem;
+    font-size: 1.2rem;
 }
 
 #linksColB {display: none;}
@@ -1101,20 +1105,80 @@ h2 {
     color: var(--blueMd);
 }    
 
-#footer-contact form {padding: 0 5%;}
+#footer-contact form {
+    padding: 0 5%;
+    position: relative;
+}
 
 label {
     display: block;
-    margin-bottom: 5%;
+    margin-bottom: 4%;
 }
 
-input {
+input, textarea {
+    box-sizing: border-box;
+    width: 100%;
     display: block;
-    width: 98%;
+    border: 1px solid var(--blueDk);
+    padding: 3px;
 }
 
-input[type="textarea"] {height: 8rem;}
+#button-wrapper {
+    width: 100%;
+    display: flex;
+    gap: 10%;
+}
+
+#clear-form {
+    padding: 2%;
+    background-color: var(--aquaLt);
+    border: 1px solid var(--blueDk);
+    color: var(--blueMd);
+    font-weight: bold;
+    width: 45%;
+}
+
+#submit {
+    padding: 2%;
+    background-color: var(--blueDk);
+    border: none;
+    color: var(--aquaLt);
+    font-weight: bold;
+    width: 45%;
+}
+
 .asterisk {color: #D00000;}
+
+#message-sent {
+    background-color: var(--greenLt);
+    opacity: 0.9;
+    box-sizing: border-box;
+    border: 2px solid var(--blueDk);
+    width: 80%;
+    padding: 2rem;
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    transform: rotate(-7deg);
+}
+
+#message-sent span {
+    color: var(--greenDk);
+    font-size: 3rem;
+    line-height: 1.5rem;
+    position: absolute;
+    top: 0.1rem;
+    right: 0.1rem;
+    cursor: pointer;
+}
+
+
+
+#message-sent p {
+    color: var(--blueDk);
+    font-size: 1.5rem;
+    text-align: center;
+}
 
 
 /* Mobile, in landscape */
@@ -1122,21 +1186,21 @@ input[type="textarea"] {height: 8rem;}
 @media (any-hover: none) and (orientation: landscape) {
     #links-contact {flex-direction: row;}
     #links-contact > div {width: 50vw;}
-    #footer-links {padding: 2% 2% 5% 0; gap: 10%;}
-    #footer-links h4 {font-size: 0.8rem;}
-    #footer-links p {
-        font-size: 1rem;
-        text-indent: 1rem;
+    #footer-links {
+        padding-top: 0; 
+        gap: 10%;
     }
-    #footer-contact {padding: 0 2vw;}
-    #footer-contact h4 {font-size: 0.8rem;}
+    #footer-contact {padding-bottom: 5vh;}
     label {font-size: 0.8rem;}
     .form-flex {
+        width: 100%;
         display: flex;
         flex-direction: row;
         gap: 2vw;
     }
-    input[type="textarea"] {height: 5rem;}
+    .form-flex label {
+        width: 100%;
+    }
 }
 
 
@@ -1144,11 +1208,14 @@ input[type="textarea"] {height: 8rem;}
 
     /* Desktop: screen widths between 650px and 1000px */
 
+@media (any-hover: hover) {
+    #footer-contact {padding-bottom: 20px;}
+    #footer-links {padding: 0 0 0 5px;}
+}
+
 @media (any-hover: hover) and (min-width: 650px) {
     #links-contact {flex-direction: row;}
     #links-contact > div {width: 50vw;}
-    #footer-links {padding: 10px 0 0 0;}
-    #footer-contact {padding-bottom: 0;}
 }
 
 
@@ -1169,7 +1236,7 @@ input[type="textarea"] {height: 8rem;}
         display: flex;
         flex-direction: row;
         gap: 20px;
-        width: 98%;
+        width: 100%;
     }
     .form-flex label {width: 100%;}
 }
@@ -1185,7 +1252,7 @@ input[type="textarea"] {height: 8rem;}
 footer {
     background-image: url(../assets/circle-bkgd-wide.svg);
     background-size: cover;
-    padding-top: 3vh;
+    padding-top: 4vh;
 }
 
 footer p {margin: 0;}
