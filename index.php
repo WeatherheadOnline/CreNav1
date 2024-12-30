@@ -298,8 +298,9 @@
         $phoneEntered = false;
         if ($_POST["phone"] !== "") {
             $phone = dataFilter($_POST["phone"]);
+            $phone = preg_replace('/[^0-9]/', '', $phone);
+            $phoneString = substr($phone, 0, 3) . '-' . substr($phone, 3, 3) . "-" . substr($phone, 6);
             $phoneEntered = true;
-            $phoneString = substr($phone, 0, 3) . '-' . substr($phone, 3, 3) . "-" . substr($phone, 7);
         }
         
         function dataFilter($data) {
